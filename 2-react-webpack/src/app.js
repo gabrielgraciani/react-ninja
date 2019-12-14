@@ -6,10 +6,15 @@ import Title from './title';
 class App extends Component{
 	render(){
 		return(
-			<div className="container">
+			/*<div className="container">
 				{['blue', 'red', 'green'].map((square, index) => (
 					<Square key={index} color={square} />
 				))}
+			</div>*/
+			<div className="container" onClick={(e) => {
+				alert('clicou');
+			}}>
+				<Square />
 			</div>
 		)
 	}
