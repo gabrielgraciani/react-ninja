@@ -5,7 +5,8 @@ class App extends Component{
 	constructor(){
 		super()
 		this.state = {
-			value: 'valor inicial'
+			value: 'valor inicial',
+			checked: false
 		}
 	}
 	render(){
@@ -17,6 +18,14 @@ class App extends Component{
 							value: e.target.value
 						})
 					}} />
+
+					<label >
+						<input type="checkbox" value="checkbox" checked={this.state.checked}
+						   onChange={(e) =>
+						   	this.setState({checked: !this.state.checked})
+						   } />
+						checkbox
+					</label>
 				</form>
 			</div>
 		)
