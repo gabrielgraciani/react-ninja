@@ -5,27 +5,21 @@ class App extends Component{
 	constructor(){
 		super()
 		this.state = {
-			value: 'valor inicial',
-			checked: false
+			value: '2'
 		}
 	}
 	render(){
 		return(
 			<div>
 				<form>
-					<input type="text" value={this.state.value} onChange={(e) =>{
-						this.setState({
-							value: e.target.value
-						})
-					}} />
+					<select value={this.state.value} onChange={(e) => {
+						this.setState({value: e.target.value})
+					}}>
+						<option value="1">Opcao 1</option>
+						<option value="2">Opcao 2</option>
+						<option value="3">Opcao 3</option>
+					</select>
 
-					<label >
-						<input type="checkbox" value="checkbox" checked={this.state.checked}
-						   onChange={(e) =>
-						   	this.setState({checked: !this.state.checked})
-						   } />
-						checkbox
-					</label>
 				</form>
 			</div>
 		)
