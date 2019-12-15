@@ -1,8 +1,6 @@
 'use strict'
 import React, {Component} from 'react';
 import Button from './button';
-import Square from './square';
-import Timer from './timer';
 
 class App extends Component{
 	constructor() {
@@ -15,10 +13,7 @@ class App extends Component{
 	render(){
 		return(
 			<div>
-				{this.state.showTimer && <Timer />}
-				<button onClick={() => {
-					this.setState({showTimer: !this.state.showTimer })
-				}}>Show / hide timer</button>
+				<Button handleClick={() => alert('clicou')}>Clique em mim</Button>
 			</div>
 		)
 	}
