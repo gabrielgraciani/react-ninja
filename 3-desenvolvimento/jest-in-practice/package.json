@@ -4,11 +4,12 @@
   "description": "",
   "main": "sum.test.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
     "jest-cli": "^24.9.0"
   }
 }
