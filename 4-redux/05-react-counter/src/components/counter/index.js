@@ -1,37 +1,22 @@
-import React, { PureComponent } from 'react'
-import Counter from './counter';
+import React from 'react'
 import {connect} from 'react-redux';
 
+const Counter = ({ counter, increment, decrement }) => (
+	<div>
+		<h1>{counter}</h1>
+		<button onClick={decrement}>-</button>
+		<button onClick={increment}>+</button>
+	</div>
 
+)
 
-class CounterContainer extends PureComponent {
-	constructor () {
-		super();
+const mapStateToProps = (state) => ({
+	counter: state
+});
 
-		this.increment = () => {
-			this.props.dispatch({type: 'INCREMENT'})
-		};
+const mapDispatchToProps = (dispatch) => ({
+	increment: () => dispatch({type: 'INCREMENT'}),
+	decrement: () => dispatch({type: 'DECREMENT'})
+});
 
-		this.decrement = () => {
-			this.props.dispatch({type: 'DECREMENT'})
-		};
-	}
-
-	render () {
-		return (
-			<Counter
-				counter={this.props.counter}
-				increment={this.increment}
-				decrement={this.decrement}
-			/>
-		)
-	}
-}
-
-const mapStateToProps = (state) => {
-	return{
-		counter: state
-	}
-}
-
-export default connect(mapStateToProps)(CounterContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(Counter)
