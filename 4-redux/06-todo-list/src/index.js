@@ -5,7 +5,8 @@ import {createStore} from 'redux';
 import {Provider} from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import reducer from './redux-flow/reducers/todos'
+import reducer from './redux-flow/reducers'
+
 const store = createStore(reducer);
 
 ReactDOM.render(
