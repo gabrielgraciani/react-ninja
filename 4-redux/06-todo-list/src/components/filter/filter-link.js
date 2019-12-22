@@ -4,16 +4,16 @@ const FilterLink = ({action, activeFilter, children, onClick}) => {
 	const span = {tag: 'span'};
 	const a = {tag: 'a', href:'#', onClick};
 
-	const Component = action ===activeFilter ? span : a;
+	const component = action ===activeFilter ? span : a;
 
 	return (
-		<Component.tag
-			href={Component.href}
-			onClick={onClick}
+		<component.tag
+			href={component.href}
+			onClick={component.onClick}
 			style={{marginRight: 10}}
 		>
 			{children}
-		</Component.tag>
+		</component.tag>
 	)
 }
 
