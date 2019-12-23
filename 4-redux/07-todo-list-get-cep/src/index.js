@@ -7,24 +7,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './redux-flow/reducers'
 
-const initialState = {
-	todos: [{
-		text: 'auto',
-		id: '123',
-		completed: false
-	}],
-
-	address: {
-		address: 'rua',
-		city: 'cidade',
-		code: '133331',
-		district: 'bairro',
-		state: 'SP',
-		status: 200
-	}
-};
-
-const store = createStore(reducer, initialState);
+const store = createStore(reducer);
 
 ReactDOM.render(
 	<Provider store={store}>
