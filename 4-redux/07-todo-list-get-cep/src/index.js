@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './redux-flow/reducers'
 
-const store = createStore(reducer);
+const middleware = ({dispatch, getState}) => (next) => (action) => {
+	const nextAction = next(action);
+	return nextAction;
+};
+
+
+
+const store = createStore(reducer, applyMiddleware(middleware));
 
 ReactDOM.render(
 	<Provider store={store}>
