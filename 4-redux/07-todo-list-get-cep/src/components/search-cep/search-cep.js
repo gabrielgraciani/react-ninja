@@ -1,8 +1,8 @@
 import React from 'react';
 
-const SearchCep = ({address, city, code, district, state, status}) => (
+const SearchCep = ({address, city, code, district, state, status, handleSubmit}) => (
 	<div>
-		<form action="">
+		<form action="" onSubmit={handleSubmit}>
 			<input type="text" name="cep" />
 			<button type="submit">Buscar endereço</button>
 		</form>
