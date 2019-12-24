@@ -1,25 +1,22 @@
 import React from 'react';
 import 'milligram';
 import 'normalize.css';
+import './assets/css/styles.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+	<div className="container_app">
+		<header>
+			<h1>ReactFlix</h1>
+		</header>
+
+		<main>
+			Conteúdo
+		</main>
+
+		<footer>
+			&copy; 2019
+		</footer>
+	</div>
+);
 
 export default App;

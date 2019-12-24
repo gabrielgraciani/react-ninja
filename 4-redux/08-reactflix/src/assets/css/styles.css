@@ -1,0 +1,7 @@
+html, body{height:100%;}
+h1,h2,h3,h4{margin:0;}
+header{height: 60px; background: #333;}
+main{min-height:calc(100% - 90px)}
+footer{height: 30px; background:#333;}
+#root{height:100%;}
+.container_app{height:100%;}
