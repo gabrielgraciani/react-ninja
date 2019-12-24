@@ -13,3 +13,7 @@ footer{height: 30px; background:#333;}
 #wrap_videos .video .video-thumb .svg path{fill:#999;}
 #wrap_videos .video .video-title{font-size:18px;}
 #wrap_videos .video:hover .video-thumb .svg{transform: scale(1.5);}
+
+.video-single{display:flex; justify-content:center; flex-direction:column;}
+.video-single iframe{border:0; border-bottom:1px solid #999; width:100%; background:#000; margin-bottom:10px;}
+.video-single .title{padding:10px;}
