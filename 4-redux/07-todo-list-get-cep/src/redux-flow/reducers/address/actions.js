@@ -1,1 +1,2 @@
-export const UPDATE_ADDRESS = 'address:UPDATE_ADDRESS'
+export const SUCCESS = 'address:SUCCESS';
+export const FETCHING = 'address:FETCHING';

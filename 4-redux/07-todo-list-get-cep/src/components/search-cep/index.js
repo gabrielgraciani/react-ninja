@@ -1,16 +1,51 @@
 import React from 'react';
-import SearchCep from './search-cep';
 import {connect} from 'react-redux';
 import {fetchAddress} from '../../redux-flow/reducers/address/action-creators';
 
+const SearchCep = ({address, city, code, district, state, status, handleSubmit, isFetching}) => (
+	<div>
+		<form action="" onSubmit={handleSubmit}>
+			<input type="text" name="cep" />
+			<button type="submit" disabled={isFetching}>{isFetching ? 'Buscando...' : 'Buscar Endereço'}</button>
+		</form>
 
-const SearchCepContainer = ({address, handleSubmit}) => (
-	<SearchCep handleSubmit={handleSubmit} {...address} />
+		{status === 400 &&
+		<div>
+			Cep não encontrado
+		</div>
+		}
+
+		{status === 200 && (
+			<table>
+				<thead>
+				<tr>
+					<td>CEP</td>
+					<td>Endereço</td>
+					<td>Bairro</td>
+					<td>Cidade</td>
+					<td>Estado</td>
+				</tr>
+				</thead>
+
+				<tbody>
+				<tr>
+					<td>{code}</td>
+					<td>{address}</td>
+					<td>{district}</td>
+					<td>{city}</td>
+					<td>{state}</td>
+				</tr>
+				</tbody>
+			</table>
+		)}
+
+
+
+	</div>
 );
 
-const mapStateToProps = (state) => ({
-	address: state.address
-});
+
+const mapStateToProps = (state) => state.address;
 
 
 const mapDispatchToProps = (dispatch) =>  ({
@@ -20,4 +55,4 @@ const mapDispatchToProps = (dispatch) =>  ({
 	}
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchCepContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchCep)
