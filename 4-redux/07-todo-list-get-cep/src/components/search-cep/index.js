@@ -38,9 +38,6 @@ const SearchCep = ({address, city, code, district, state, status, handleSubmit, 
 				</tbody>
 			</table>
 		)}
-
-
-
 	</div>
 );
 
