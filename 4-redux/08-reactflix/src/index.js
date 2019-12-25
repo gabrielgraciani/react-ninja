@@ -24,11 +24,10 @@ app.initializeApp(config);
 const db = firebase.database();
 const videos = db.ref('videos');
 
-const videoJS = videos.push();
+const anyVideo = videos.child('-Lwymo2tRBY55VagG6A-');
 
-videoJS.set({
-	id: '8x4KROogMqo',
-	title: 'barbixas'
+anyVideo.update({
+	title: 'barbixas teste21331'
 });
 
 videos.on('value', (snapshot) => {
