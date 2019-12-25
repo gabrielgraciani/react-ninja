@@ -23,6 +23,14 @@ const config = {
 app.initializeApp(config);
 const db = firebase.database();
 const videos = db.ref('videos');
+
+const videoJS = videos.push();
+
+videoJS.set({
+	id: '8x4KROogMqo',
+	title: 'barbixas'
+});
+
 videos.on('value', (snapshot) => {
 	console.log('snapshot: ', snapshot.val());
 }, (error) => {
