@@ -24,11 +24,7 @@ app.initializeApp(config);
 const db = firebase.database();
 const videos = db.ref('videos');
 
-const anyVideo = videos.child('-Lwymo2tRBY55VagG6A-');
-
-anyVideo.update({
-	title: 'barbixas teste21331'
-});
+db.ref('categories/humor').remove();
 
 videos.on('value', (snapshot) => {
 	console.log('snapshot: ', snapshot.val());
