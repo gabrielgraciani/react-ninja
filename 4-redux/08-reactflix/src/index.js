@@ -5,24 +5,8 @@ import {Provider} from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './redux-flow/configure-store';
-import {db} from './config/firebase';
 
 const store = configureStore();
-
-
-const videos = db.ref('videos');
-
-videos.child('123').set({
-	id: '123',
-	title: 'teste'
-});
-
-videos.on('value', (snapshot) => {
-	console.log('snapshot: ', snapshot.val());
-}, (error) => {
-	console.log('error:', error);
-});
-
 
 ReactDOM.render(
 	<Provider store={store}>

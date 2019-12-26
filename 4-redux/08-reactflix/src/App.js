@@ -4,6 +4,7 @@ import 'normalize.css';
 import './assets/css/styles.css';
 import VideosList from './components/videos-list';
 import VideoSingle from './components/video-single';
+import RegisterVideo from './components/register-video';
 
 const App = () => (
 	<div className="container_app">
@@ -12,6 +13,7 @@ const App = () => (
 		</header>
 
 		<main>
+			<RegisterVideo />
 			<VideoSingle />
 			<VideosList />
 		</main>
