@@ -5,26 +5,17 @@ import {Provider} from 'react-redux';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './redux-flow/configure-store';
-import firebase from 'firebase';
-import app from 'firebase/app';
+import {db} from './config/firebase';
 
 const store = configureStore();
 
-const config = {
-	apiKey: "AIzaSyAZlLJYAL6BkmE1WGGBAAXOQ6NMtjkMYfk",
-	authDomain: "reactflix-5a475.firebaseapp.com",
-	databaseURL: "https://reactflix-5a475.firebaseio.com",
-	projectId: "reactflix-5a475",
-	storageBucket: "reactflix-5a475.appspot.com",
-	messagingSenderId: "677388426918",
-	appId: "1:677388426918:web:57e696ad4c195ab6b1de67",
-	measurementId: "G-QP5XFZ3655"
-};
-app.initializeApp(config);
-const db = firebase.database();
+
 const videos = db.ref('videos');
 
-db.ref('categories/humor').remove();
+videos.child('123').set({
+	id: '123',
+	title: 'teste'
+});
 
 videos.on('value', (snapshot) => {
 	console.log('snapshot: ', snapshot.val());
