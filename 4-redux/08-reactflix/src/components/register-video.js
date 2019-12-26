@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {addVideo} from '../redux-flow/reducers/videos/action-creators';
 
 const RegisterVideo = ({onSubmit}) => (
 	<form className="form-cadastro" onSubmit={onSubmit}>
@@ -18,13 +19,18 @@ const RegisterVideo = ({onSubmit}) => (
 const mapDispatchToProps = (dispatch) => ({
 	onSubmit: (e) => {
 		e.preventDefault();
-		dispatch({
-			type: 'videos:ADD_VIDEO',
-			payload:{
-				id: '8x4KROogMqo',
-				title: 'barbixas'
-			}
-		})
+
+		const {
+			id: {value: id},
+			title: {value: title}
+		} = e.target;
+
+		dispatch(addVideo({
+			id: id,
+			//id
+			title: title
+			//title
+		}));
 	}
 });
 
