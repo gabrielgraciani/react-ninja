@@ -1,9 +1,9 @@
 import React from 'react';
 
-const VideoSingle = () => (
+const VideoSingle = ({id, title}) => (
 	<div className="video-single">
-		<iframe width="560" height="480" src="https://www.youtube-nocookie.com/embed/8x4KROogMqo" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
-		<h2 className="title">Título do vídeo</h2>
+		<iframe width="560" height="480" src={`https://www.youtube-nocookie.com/embed/${id}`} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+		<h2 className="title">{title}</h2>
 	</div>
 );
 

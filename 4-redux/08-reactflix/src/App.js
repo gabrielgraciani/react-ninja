@@ -15,14 +15,14 @@ class App extends Component{
 		this.props.fetchVideos()
 	}
 	render(){
-		const {isRegisterVideoFormOpened} = this.props;
+		const {isRegisterVideoFormOpened, videoSingleId, videos} = this.props;
 		return(
 			<div className="container_app">
 				<Header />
 
 				<main>
 					{isRegisterVideoFormOpened && <RegisterVideo />}
-					<VideoSingle />
+					{videoSingleId && <VideoSingle id={videoSingleId} title={videos[videoSingleId].title} />}
 					<VideosList />
 				</main>
 
@@ -33,7 +33,9 @@ class App extends Component{
 }
 
 const mapStateToProps = (state) => ({
-	isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+	isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened,
+	videoSingleId : state.videoSingle,
+	videos: state.videos
 });
 
 const mapDispatchToProps = {fetchVideos};

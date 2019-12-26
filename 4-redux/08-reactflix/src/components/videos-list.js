@@ -1,6 +1,7 @@
 import React from 'react';
 import Play from './play';
 import {connect} from 'react-redux';
+import {selectVideoSingle} from '../redux-flow/reducers/video-single/action-creators';
 
 
 const VideosList = ({videos, handleClick}) => (
@@ -27,9 +28,9 @@ const mapStateToProps = (state) =>({
 const mapDispatchToProps = (dispatch) => ({
 	handleClick: (id) => (e) => {
 		e.preventDefault();
-		console.log('clicou!', id);
+		dispatch(selectVideoSingle(id))
 	}
-})
+});
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideosList);
