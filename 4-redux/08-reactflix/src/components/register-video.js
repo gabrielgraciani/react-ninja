@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addVideo} from '../redux-flow/reducers/videos/action-creators';
+import {registerVideo} from '../redux-flow/reducers/videos/action-creators';
 
 const RegisterVideo = ({onSubmit}) => (
 	<form className="form-cadastro" onSubmit={onSubmit}>
@@ -25,7 +25,7 @@ const mapDispatchToProps = (dispatch) => ({
 			title: {value: title}
 		} = e.target;
 
-		dispatch(addVideo({
+		dispatch(registerVideo({
 			id: id,
 			//id
 			title: title
