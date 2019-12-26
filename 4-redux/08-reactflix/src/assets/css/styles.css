@@ -1,6 +1,6 @@
 html, body{height:100%;}
 h1,h2,h3,h4{margin:0;}
-header{height: 60px; background: #333;}
+header{height: 60px; background: #333; display:flex; justify-content:space-between; align-items:center; padding:0 10px;}
 main{min-height:calc(100% - 90px)}
 footer{height: 30px; background:#333;}
 #root{height:100%;}
@@ -18,5 +18,10 @@ footer{height: 30px; background:#333;}
 .video-single iframe{border:0; border-bottom:1px solid #999; width:100%; background:#000; margin-bottom:10px;}
 .video-single .title{padding:10px;}
 
-.form-cadastro{padding:10px}
+.form-cadastro{padding:10px; position:relative;}
 .form-cadastro input{margin-bottom:10px;}
+.close-form{position:absolute; right:10px; top:10px; margin:0; padding:0; width:30px; height:30px; border-radius:50%; font-size:20px; line-height:1;}
+
+.title-header{color:#fff;}
+.button-header{margin-bottom:0;}
+

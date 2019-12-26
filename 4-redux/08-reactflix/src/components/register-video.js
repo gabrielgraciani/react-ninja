@@ -13,6 +13,8 @@ const RegisterVideo = ({onSubmit}) => (
 		<input type="text" id="title" name="title"/>
 
 		<button type="submit">Cadastrar</button>
+
+		<button type="button" className="close-form">&times;</button>
 	</form>
 );
 
