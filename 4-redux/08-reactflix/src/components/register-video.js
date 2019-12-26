@@ -17,20 +17,23 @@ const RegisterVideo = ({onSubmit}) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-	onSubmit: (e) => {
+	onSubmit: async (e) => {
 		e.preventDefault();
+		e.persist();
 
 		const {
 			id: {value: id},
 			title: {value: title}
 		} = e.target;
 
-		dispatch(registerVideo({
+		await dispatch(registerVideo({
 			id: id,
 			//id
 			title: title
 			//title
 		}));
+		e.target.reset();
+		e.target[0].focus();
 	}
 });
 
