@@ -5,14 +5,13 @@ import './assets/css/styles.css';
 import VideosList from './components/videos-list';
 import VideoSingle from './components/video-single';
 import RegisterVideo from './components/register-video';
+import Header from './components/header';
+import Footer from './components/footer';
 
 
 const App = () => (
 	<div className="container_app">
-		<header>
-			<h1 className="title-header">ReactFlix</h1>
-			<button className="button-header">Cadastrar vídeo</button>
-		</header>
+		<Header />
 
 		<main>
 			<RegisterVideo />
@@ -20,9 +19,7 @@ const App = () => (
 			<VideosList />
 		</main>
 
-		<footer>
-			&copy; 2019
-		</footer>
+		<Footer />
 	</div>
 );
 
