@@ -1,4 +1,7 @@
 
-import { combineReducers } from 'redux'
+import { combineReducers } from 'redux';
+import videos from './videos';
 
-export default combineReducers({})
+export default combineReducers({
+	videos
+})
