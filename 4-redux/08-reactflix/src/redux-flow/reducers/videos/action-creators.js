@@ -17,11 +17,20 @@ export const registerVideo = ({id, title}) => async (dispatch) => {
 	dispatch(addVideo({id, title}));
 };
 
-export const fetchVideos = () => (dispatch) =>{
+export const fetchVideos = () => (dispatch) => {
 	db.ref('videos').on('value', (snapshot) => {
-		console.log('snapshot:', snapshot.val());
-		snapshot.forEach((child) =>{
-			dispatch(addVideo(child.val()));
-		})
-	})
+		const videos = snapshot.val();
+		const ordered = Object.keys(videos)
+			.sort((a, b) => videos[a].title < videos[b].title ? -1 : 1)
+			.map((id) => ({
+				id,
+				title: videos[id].title
+			}));
+		ordered.forEach((video) => dispatch(addVideo(video)));
+	});
 };
+
+	/*db.ref('videos').orderByChild('title').on('child_added', (child) => {
+		console.log(child.val());
+		dispatch(addVideo(child.val()));
+	})*/
