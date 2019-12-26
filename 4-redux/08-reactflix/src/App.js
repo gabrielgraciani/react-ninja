@@ -7,14 +7,15 @@ import VideoSingle from './components/video-single';
 import RegisterVideo from './components/register-video';
 import Header from './components/header';
 import Footer from './components/footer';
+import {connect} from 'react-redux';
 
 
-const App = () => (
+const App = ({isRegisterVideoFormOpened}) => (
 	<div className="container_app">
 		<Header />
 
 		<main>
-			<RegisterVideo />
+			{isRegisterVideoFormOpened && <RegisterVideo />}
 			<VideoSingle />
 			<VideosList />
 		</main>
@@ -23,4 +24,8 @@ const App = () => (
 	</div>
 );
 
-export default App;
+const mapStateToProps = (state) => ({
+	isRegisterVideoFormOpened: state.ui.isRegisterVideoFormOpened
+});
+
+export default connect(mapStateToProps)(App);
