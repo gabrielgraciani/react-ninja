@@ -8,12 +8,12 @@ function App() {
 			<ul>
 				<li><Link to="/">Home</Link></li>
 				<li><Link to="/sobre">Sobre</Link></li>
-				<li><Link to="/contato">Contato</Link></li>
+				<li><Link to="/blog">Blog</Link></li>
 			</ul>
 
 			<Route path="/" exact component={Home} />
 			<Route path="/sobre" component={Sobre} />
-			<Route path="/contato" component={Contato} />
+			<Route path="/blog" component={Blog} />
 		</div>
 	</BrowserRouter>
   );
@@ -27,8 +27,23 @@ const Sobre = () => (
 	<h1>Sobre</h1>
 );
 
-const Contato = () => (
-	<h1>Contato</h1>
-)
+const Blog = () => (
+	<div>
+		<h1>Blog</h1>
+
+		<ul>
+			<li><Link to="/blog/post-1">Post1</Link></li>
+			<li><Link to="/blog/post-2">Post2</Link></li>
+		</ul>
+
+		<Route path="/blog/:post" component={Post} />
+	</div>
+);
+
+const Post = ({match}) => (
+	<div>
+		<h2>Post: {match.params.post}</h2>
+	</div>
+);
 
 export default App;
