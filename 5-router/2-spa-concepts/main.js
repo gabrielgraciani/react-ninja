@@ -1,5 +1,6 @@
 ;(function(){
 	var $links = document.querySelectorAll('a');
+	var $h1 = document.querySelector('h1');
 
 	$links.forEach(function ($link){
 		$link.addEventListener('click', handleClick, false);
@@ -11,5 +12,6 @@
 		var title = '';
 		var url = e.target.getAttribute('href');
 		history.pushState(state, title, url);
+		$h1.textContent = url;
 	}
 })();
