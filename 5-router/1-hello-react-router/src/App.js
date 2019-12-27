@@ -1,26 +1,33 @@
-import React from 'react';
-import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
+import React, {Component} from 'react';
+import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
+import './assets/css/styles.css';
 
-function App() {
-  return (
-  	<BrowserRouter>
-		<div className="App">
-			<ul>
-				<li><Link to="/">Home</Link></li>
-				<li><Link to="/sobre">Sobre</Link></li>
-				<li><Link to="/blog">Blog</Link></li>
-				<li><Link to="/contato">Contato</Link></li>
-			</ul>
+const Link = (props) => (
+	<NavLink activeStyle={{color: 'red'}} {...props} />
+);
 
-			<Switch>
-				<Route path="/" exact component={Home} />
-				<Route path="/(sobre|contato)" component={Page} />
-				<Route path="/blog" component={Blog} />
-				<Route component={Error404} />
-			</Switch>
-		</div>
-	</BrowserRouter>
-  );
+class App extends Component{
+	render(){
+	  return (
+		<BrowserRouter>
+			<div className="App">
+				<ul>
+					<li><Link to="/" exact>Home</Link></li>
+					<li><Link to="/sobre">Sobre</Link></li>
+					<li><Link to="/blog">Blog</Link></li>
+					<li><Link to="/contato">Contato</Link></li>
+				</ul>
+
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<Route path="/(sobre|contato)" component={Page} />
+					<Route path="/blog" component={Blog} />
+					<Route component={Error404} />
+				</Switch>
+			</div>
+		</BrowserRouter>
+	  );
+	}
 }
 
 const Home = () => (
