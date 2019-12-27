@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Link, Route} from 'react-router-dom';
+import {BrowserRouter, Link, Route, Switch} from 'react-router-dom';
 
 function App() {
   return (
@@ -11,9 +11,12 @@ function App() {
 				<li><Link to="/blog">Blog</Link></li>
 			</ul>
 
-			<Route path="/" exact component={Home} />
-			<Route path="/sobre" component={Sobre} />
-			<Route path="/blog" component={Blog} />
+			<Switch>
+				<Route path="/" exact component={Home} />
+				<Route path="/sobre" component={Sobre} />
+				<Route path="/blog" component={Blog} />
+				<Route component={Error404} />
+			</Switch>
 		</div>
 	</BrowserRouter>
   );
@@ -44,6 +47,10 @@ const Post = ({match}) => (
 	<div>
 		<h2>Post: {match.params.post}</h2>
 	</div>
+);
+
+const Error404 = () => (
+	<h1>Página não encontrada</h1>
 );
 
 export default App;
