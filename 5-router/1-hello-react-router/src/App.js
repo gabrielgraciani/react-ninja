@@ -13,7 +13,11 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<ul>
-						<li><Link to='/' exact>Home</Link></li>
+						<li><Link to={{
+							pathname: '/',
+							state: { id: 'home' },
+							search: '?name=gabriel'
+						}} exact>Home</Link></li>
 						<li><Link to='/sobre'>Sobre</Link></li>
 						<li><Link to='/contato'>Contato</Link></li>
 						<li><Link to='/blog'>Blog</Link></li>
