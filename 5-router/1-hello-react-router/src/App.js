@@ -7,7 +7,7 @@ const Link = (props) => (
 		{({match, location, history}) => (
 			<a href={props.to} onClick={(e) => {
 				e.preventDefault();
-				history.push(props.to);
+				history.replace(props.to);
 			}}>{props.children} </a>
 		)}
 	</Route>
