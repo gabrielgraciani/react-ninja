@@ -1,10 +1,20 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch, NavLink, Redirect, Prompt} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, NavLink, Redirect, Prompt, withRouter} from 'react-router-dom';
 import './assets/css/styles.css';
 
 const Link = (props) => (
 	<NavLink activeStyle={{ color: 'red' }} {...props} />
 );
+
+const ButtonBack_ = ({history}) => (
+	<button onClick={(e) => history.go(-1)}>Voltar</button>
+);
+const ButtonBack = withRouter(ButtonBack_);
+
+const ButtonFoward_ = ({history}) => (
+	<button onClick={(e) => history.go(1)}>Próxima página</button>
+);
+const ButtonFoward = withRouter(ButtonFoward_);
 
 
 class App extends Component {
@@ -14,18 +24,10 @@ class App extends Component {
 				<div>
 					<ul>
 						<li>
-							<Route>
-								{({history}) => (
-									<li><button onClick={(e) => history.go(-1)}>Voltar</button></li>
-								)}
-							</Route>
+							<ButtonBack />
 						</li>
 						<li>
-							<Route>
-								{({history}) => (
-									<li><button onClick={(e) => history.go(1)}>Próxima pagina</button></li>
-								)}
-							</Route>
+							<ButtonFoward />
 						</li>
 					</ul>
 
