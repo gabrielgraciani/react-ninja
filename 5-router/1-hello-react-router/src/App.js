@@ -3,7 +3,15 @@ import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
 import './assets/css/styles.css';
 
 const Link = (props) => (
-	<NavLink activeStyle={{ color: 'red' }} {...props} />
+	<Route>
+		{({match, location, history}) => (
+			<a href={props.to} onClick={(e) => {
+				e.preventDefault();
+				history.push(props.to);
+			}}>{props.children} </a>
+		)}
+	</Route>
+	//<NavLink activeStyle={{ color: 'red' }} {...props} />
 );
 
 
