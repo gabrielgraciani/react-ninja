@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, NavLink, Redirect} from 'react-router-dom';
 import './assets/css/styles.css';
 
 const Link = (props) => (
@@ -34,6 +34,7 @@ class App extends Component {
 						<li><Link to='/sobre'>Sobre</Link></li>
 						<li><Link to='/contato'>Contato</Link></li>
 						<li><Link to='/blog'>Blog</Link></li>
+						<li><Link to="/voltar-para-home">Voltar para home</Link></li>
 						<li><a href='#informacoes-do-site'>Informações do site</a></li>
 					</ul>
 
@@ -41,6 +42,7 @@ class App extends Component {
 						<Route path='/' exact component={Home} />
 						<Route path='/(sobre|contato)' component={Page} />
 						<Route path='/blog' component={Blog} />
+						<Route path="/voltar-para-home" render={() => <Redirect to="/" />} />
 						<Route component={Error404} />
 					</Switch>
 
