@@ -2,26 +2,10 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
 import './assets/css/styles.css';
 
-/*const Link = (props) => (
+const Link = (props) => (
 	<NavLink activeStyle={{ color: 'red' }} {...props} />
-);*/
+);
 
-const Link = (props ) => (
-	<Route path={props.to} exact={props.exact}>
-		{({match, history}) => (
-			<a
-				href={props.to}
-				style={match ? {color: 'red'} : null}
-				onClick={(e) => {
-					e.preventDefault();
-					history.push(props.to);
-				}}
-			>
-				{props.children}
-			</a>
-		)}
-	</Route>
-)
 
 class App extends Component {
 	render () {
@@ -33,6 +17,7 @@ class App extends Component {
 						<li><Link to='/sobre'>Sobre</Link></li>
 						<li><Link to='/contato'>Contato</Link></li>
 						<li><Link to='/blog'>Blog</Link></li>
+						<li><a href="#informacoes-do-site">informações do site</a></li>
 					</ul>
 
 					<Switch>
@@ -41,6 +26,10 @@ class App extends Component {
 						<Route path='/blog' component={Blog} />
 						<Route component={Error404} />
 					</Switch>
+
+					<div id="informacoes-do-site" style={{marginTop:2000}}>
+						<h2>informações do site</h2>
+					</div>
 				</div>
 			</BrowserRouter>
 		)
@@ -51,19 +40,23 @@ const Error404 = () => (
 	<h1>Página não encontrada</h1>
 );
 
-const Home = () => (
-	<h1>Home</h1>
+const Home = ({match, location}) => (
+	<div>
+		{console.log('home location:', location)}
+		<h1>Home</h1>
+	</div>
 );
 
-const Page = ({ match }) => (
+const Page = ({ match, location }) => (
 	<div>
-		{console.log(match)}
+		{console.log('page location:', location)}
 		<h1>{match.url}</h1>
 	</div>
 );
 
-const Blog = () => (
+const Blog = ({match, location}) => (
 	<div>
+		{console.log('blog location:', location)}
 		<h1>Blog</h1>
 
 		<ul>
@@ -79,12 +72,16 @@ const Blog = () => (
 	</div>
 );
 
-const Post404 = () => (
-	<h1>Esse post não existe</h1>
+const Post404 = ({match, location}) => (
+	<div>
+		{console.log('post404 location:', location)}
+		<h1>Esse post não existe</h1>
+	</div>
 );
 
-const Post = ({ match }) => (
+const Post = ({ match, location }) => (
 	<div>
+		{console.log('post location:', location)}
 		<h2>Post: {match.params.post}</h2>
 	</div>
 );
