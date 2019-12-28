@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch, NavLink, Redirect} from 'react-router-dom';
+import {BrowserRouter, Route, Switch, NavLink, Redirect, Prompt} from 'react-router-dom';
 import './assets/css/styles.css';
 
 const Link = (props) => (
@@ -36,6 +36,7 @@ class App extends Component {
 						<li><Link to='/blog'>Blog</Link></li>
 						<li><Link to="/voltar-para-home">Voltar para home</Link></li>
 						<li><a href='#informacoes-do-site'>Informações do site</a></li>
+						<li><Link to="/cadastro">Cadastro</Link></li>
 					</ul>
 
 					<Switch>
@@ -43,6 +44,7 @@ class App extends Component {
 						<Route path='/(sobre|contato)' component={Page} />
 						<Route path='/blog' component={Blog} />
 						<Route path="/voltar-para-home" render={() => <Redirect to="/" />} />
+						<Route path="/cadastro" component={Register} />
 						<Route component={Error404} />
 					</Switch>
 
@@ -54,6 +56,10 @@ class App extends Component {
 		)
 	}
 }
+
+const Register = () => (
+	<Prompt when={true} message="navegação bloqueada" />
+)
 
 const Error404 = () => (
 	<h1>Página não encontrada</h1>
