@@ -2,9 +2,26 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
 import './assets/css/styles.css';
 
-const Link = (props) => (
+/*const Link = (props) => (
 	<NavLink activeStyle={{ color: 'red' }} {...props} />
-);
+);*/
+
+const Link = (props ) => (
+	<Route path={props.to} exact={props.exact}>
+		{({match, history}) => (
+			<a
+				href={props.to}
+				style={match ? {color: 'red'} : null}
+				onClick={(e) => {
+					e.preventDefault();
+					history.push(props.to);
+				}}
+			>
+				{props.children}
+			</a>
+		)}
+	</Route>
+)
 
 class App extends Component {
 	render () {
