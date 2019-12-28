@@ -3,15 +3,7 @@ import {BrowserRouter, Route, Switch, NavLink} from 'react-router-dom';
 import './assets/css/styles.css';
 
 const Link = (props) => (
-	<Route>
-		{({match, location, history}) => (
-			<a href={props.to} onClick={(e) => {
-				e.preventDefault();
-				history.replace(props.to);
-			}}>{props.children} </a>
-		)}
-	</Route>
-	//<NavLink activeStyle={{ color: 'red' }} {...props} />
+	<NavLink activeStyle={{ color: 'red' }} {...props} />
 );
 
 
@@ -20,6 +12,23 @@ class App extends Component {
 		return (
 			<BrowserRouter>
 				<div>
+					<ul>
+						<li>
+							<Route>
+								{({history}) => (
+									<li><button onClick={(e) => history.go(-1)}>Voltar</button></li>
+								)}
+							</Route>
+						</li>
+						<li>
+							<Route>
+								{({history}) => (
+									<li><button onClick={(e) => history.go(1)}>Próxima pagina</button></li>
+								)}
+							</Route>
+						</li>
+					</ul>
+
 					<ul>
 						<li><Link to='/' exact>Home</Link></li>
 						<li><Link to='/sobre'>Sobre</Link></li>
