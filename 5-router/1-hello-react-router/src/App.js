@@ -13,15 +13,11 @@ class App extends Component {
 			<BrowserRouter>
 				<div>
 					<ul>
-						<li><Link to={{
-							pathname: '/',
-							state: { id: 'home' },
-							search: '?name=gabriel'
-						}} exact>Home</Link></li>
+						<li><Link to='/' exact>Home</Link></li>
 						<li><Link to='/sobre'>Sobre</Link></li>
 						<li><Link to='/contato'>Contato</Link></li>
 						<li><Link to='/blog'>Blog</Link></li>
-						<li><a href="#informacoes-do-site">informações do site</a></li>
+						<li><a href='#informacoes-do-site'>Informações do site</a></li>
 					</ul>
 
 					<Switch>
@@ -31,8 +27,8 @@ class App extends Component {
 						<Route component={Error404} />
 					</Switch>
 
-					<div id="informacoes-do-site" style={{marginTop:2000}}>
-						<h2>informações do site</h2>
+					<div id='informacoes-do-site' style={{ margin: '1000px 0' }}>
+						<h2>Informações do site</h2>
 					</div>
 				</div>
 			</BrowserRouter>
@@ -42,40 +38,26 @@ class App extends Component {
 
 const Error404 = () => (
 	<h1>Página não encontrada</h1>
-);
+)
 
-const Home = ({match, location}) => (
+const Home = ({ match, location, history }) => (
 	<div>
-		{console.log('home location:', location)}
-		{console.log(
-			'location search:',
-			location.search
-			.replace('?', '')
-			.split('&')
-			.reduce((acc, item) => {
-				const [key, value] = item.split('=')
-				if (acc[key]) {
-					acc[key] = [acc[key]].concat(value)
-				} else {
-					acc[key] = value
-				}
-				return acc
-			}, {})
-		)}
+		{console.log('Home location:', location)}
+		{console.log('Home history:', history)}
 		<h1>Home</h1>
 	</div>
-);
+)
 
-const Page = ({ match, location }) => (
+const Page = ({ match, location, history }) => (
 	<div>
-		{console.log('page location:', location)}
+		{console.log('Page history:', history)}
 		<h1>{match.url}</h1>
 	</div>
-);
+)
 
-const Blog = ({match, location}) => (
+const Blog = ({ match, location, history }) => (
 	<div>
-		{console.log('blog location:', location)}
+		{console.log('Blog history:', history)}
 		<h1>Blog</h1>
 
 		<ul>
@@ -89,24 +71,24 @@ const Blog = ({match, location}) => (
 			<Route component={Post404} />
 		</Switch>
 	</div>
-);
+)
 
-const Post404 = ({match, location}) => (
+const Post404 = ({ match, location, history }) => (
 	<div>
-		{console.log('post404 location:', location)}
+		{console.log('Post404 history:', history)}
 		<h1>Esse post não existe</h1>
 	</div>
-);
+)
 
-const Post = ({ match, location }) => (
+const Post = ({ match, location, history }) => (
 	<div>
-		{console.log('post location:', location)}
+		{console.log('Post history:', history)}
 		<h2>Post: {match.params.post}</h2>
 	</div>
-);
+)
 
 const NoPosts = ({ numberOfPosts }) => (
 	<p>Selecione um dos {numberOfPosts} posts</p>
-);
+)
 
 export default App
