@@ -43,6 +43,21 @@ const Error404 = () => (
 const Home = ({match, location}) => (
 	<div>
 		{console.log('home location:', location)}
+		{console.log(
+			'location search:',
+			location.search
+			.replace('?', '')
+			.split('&')
+			.reduce((acc, item) => {
+				const [key, value] = item.split('=')
+				if (acc[key]) {
+					acc[key] = [acc[key]].concat(value)
+				} else {
+					acc[key] = value
+				}
+				return acc
+			}, {})
+		)}
 		<h1>Home</h1>
 	</div>
 );
