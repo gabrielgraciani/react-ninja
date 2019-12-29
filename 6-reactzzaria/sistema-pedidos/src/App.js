@@ -1,18 +1,25 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component{
+	state = {
+		products: []
+	};
+
+	handleClick = (e) => {
+		e.preventDefault();
+		const result = {};
+		this.setState({
+			products: result
+		})
+	};
 	render(){
+		const {hasError} = this.props;
 		return (
-			<>
-			{[1, 2, 3].map((item) => (
-				<Fragment key={item}>
-					<span>item: {item}</span>
-					<span>numero: {item}</span>
-				</Fragment>
-			))}
+			<div className="App">
 				<header className="App-header">
+					{hasError && <h1>Deu problema</h1>}
 					<img src={logo} className="App-logo" alt="logo" />
 					<p>
 						Edit <code>src/App.js</code> and save to reload.
@@ -22,11 +29,16 @@ class App extends Component{
 						href="https://reactjs.org"
 						target="_blank"
 						rel="noopener noreferrer"
+						onClick={this.handleClick}
 					>
-						Learn React
+						Buscar produtos
 					</a>
+
+					{this.state.products.map((product) => (
+						<div key={product}>{product}</div>
+					))}
 				</header>
-			</>
+			</div>
 		);
 	}
 }
