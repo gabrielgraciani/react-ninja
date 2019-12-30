@@ -4,13 +4,13 @@ import {ReactComponent as Logo} from './logo-react-zzaria.svg';
 
 const Login = () => (
 	<div id="wrap_login">
-		<Grid container direction='column' alignItems='center' spacing={40}>
+		<Grid container justify='center' spacing={40}>
 			<Grid item>
 				<Logo />
 			</Grid>
 
-			<Grid item>
-				<Button>Entrar com GitHub</Button>
+			<Grid item xs={12}>
+				<Button variant="contained" fullWidth className="githubbutton">Entrar com GitHub</Button>
 			</Grid>
 		</Grid>
 	</div>
