@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Button, Grid} from '@material-ui/core';
 import {ReactComponent as Logo} from './logo-react-zzaria.svg';
 import firebase from 'firebase/app';
@@ -17,22 +17,37 @@ measurementId: "G-XDP1NGPZFX"
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const Login = () => (
-	<div id="wrap_login">
-		<Grid container justify='center' spacing={7}>
-			<Grid item>
-				<Logo />
-			</Grid>
+class Login extends Component {
+	componentDidMount(){
+		firebase.auth().onAuthStateChanged((user) => {
+			if(user){
+				console.log('usuario logado', user);
+			}
+			else{
+				console.log('usuairo não está logasdo', user);
+			}
+		})
+	}
 
-			<Grid item xs={12} container justify="center">
-				<Button variant="contained" fullWidth className="githubbutton"
-						onClick={() => {
-							const provider = new firebase.auth.GithubAuthProvider();
-							firebase.auth().signInWithRedirect(provider);
-						}}>Entrar com GitHub</Button>
-			</Grid>
-		</Grid>
-	</div>
-);
+	render(){
+		return(
+			<div id="wrap_login">
+				<Grid container justify='center' spacing={7}>
+					<Grid item>
+						<Logo />
+					</Grid>
+
+					<Grid item xs={12} container justify="center">
+						<Button variant="contained" fullWidth className="githubbutton"
+								onClick={() => {
+									const provider = new firebase.auth.GithubAuthProvider();
+									firebase.auth().signInWithRedirect(provider);
+								}}>Entrar com GitHub</Button>
+					</Grid>
+				</Grid>
+			</div>
+		);
+	}
+};
 
 export default Login;
