@@ -18,18 +18,35 @@ measurementId: "G-XDP1NGPZFX"
 firebase.initializeApp(firebaseConfig);
 
 class Login extends Component {
+	state = {
+		isUserLoggedIn: false,
+		user: null
+	};
+
 	componentDidMount(){
 		firebase.auth().onAuthStateChanged((user) => {
-			if(user){
-				console.log('usuario logado', user);
-			}
-			else{
-				console.log('usuairo não está logasdo', user);
-			}
+			console.log('dados do usuario:', user);
+			this.setState({
+				isUserLoggedIn: !!user,
+				user
+			});
 		})
 	}
 
+	login(){
+		const provider = new firebase.auth.GithubAuthProvider();
+		firebase.auth().signInWithRedirect(provider);
+	}
+
+	logout = () =>{
+		firebase.auth().signOut().then(() => {
+			console.log('deslogou');
+			this.setState({isUserLoggedIn: false, user: null});
+		})
+	};
+
 	render(){
+		const {isUserLoggedIn, user} = this.state;
 		return(
 			<div id="wrap_login">
 				<Grid container justify='center' spacing={7}>
@@ -38,11 +55,18 @@ class Login extends Component {
 					</Grid>
 
 					<Grid item xs={12} container justify="center">
-						<Button variant="contained" fullWidth className="githubbutton"
-								onClick={() => {
-									const provider = new firebase.auth.GithubAuthProvider();
-									firebase.auth().signInWithRedirect(provider);
-								}}>Entrar com GitHub</Button>
+						{isUserLoggedIn && (
+							<>
+								<pre>{user.email}</pre>
+							<Button variant="contained" onClick={this.logout}>Sair</Button>
+							</>
+						)}
+
+						{!isUserLoggedIn && (
+							<Button variant="contained" fullWidth className="githubbutton"
+									onClick={this.login}>Entrar com GitHub</Button>
+						)}
+
 					</Grid>
 				</Grid>
 			</div>
