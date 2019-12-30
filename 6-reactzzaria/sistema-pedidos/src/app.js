@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {CssBaseline} from '@material-ui/core';
+import 'assets/css/styles.css';
 
 import MainPage from 'pages/main';
 import Login from 'pages/login';
