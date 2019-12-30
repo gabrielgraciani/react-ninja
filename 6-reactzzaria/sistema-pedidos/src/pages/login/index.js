@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, Grid} from '@material-ui/core';
 import {ReactComponent as Logo} from './logo-react-zzaria.svg';
 import firebase from 'firebase/app';
+import 'firebase/auth';
 
 var firebaseConfig = {
 apiKey: "AIzaSyBFLmUSiM1Iq9mFGdORfhIPgPWlmwIA2JE",
@@ -18,13 +19,17 @@ firebase.initializeApp(firebaseConfig);
 
 const Login = () => (
 	<div id="wrap_login">
-		<Grid container justify='center' spacing={40}>
+		<Grid container justify='center' spacing={7}>
 			<Grid item>
 				<Logo />
 			</Grid>
 
 			<Grid item xs={12} container justify="center">
-				<Button variant="contained" fullWidth className="githubbutton">Entrar com GitHub</Button>
+				<Button variant="contained" fullWidth className="githubbutton"
+						onClick={() => {
+							const provider = new firebase.auth.GithubAuthProvider();
+							firebase.auth().signInWithRedirect(provider);
+						}}>Entrar com GitHub</Button>
 			</Grid>
 		</Grid>
 	</div>
