@@ -7,7 +7,9 @@ import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
 const Main = () => (
 	<AppBar>
 		<Toolbar>
-			<Logo />
+			<div className="logo-header">
+				<Logo />
+			</div>
 
 			<Typography color="inherit">Olá João =)</Typography>
 
