@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Grid, Paper} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Grid, Paper, Divider} from '@material-ui/core';
 import {AccountCircle} from '@material-ui/icons';
 import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
 import {AuthContext} from 'contexts/auth';
@@ -43,20 +43,23 @@ const Main = () => {
 
 			<div className="main">
 				<Grid container direction="column" alignItems="center">
-					<Typography variant="h3">
+					<Typography variant="h3" gutterBottom>
 						O que vai ser hoje, {userName}? =)
 					</Typography>
 
-					<Typography variant="h4">
+					<Typography variant="h4" gutterBottom>
 						Escolha o tamanho da pizza
 					</Typography>
 
 					<Grid container spacing={3}>
 						{pizzaSizes.map((pizza) => (
 							<Grid item key={pizza.id} xs={4}>
-								<Paper style={{padding: 20}}>
+								<Paper className="paper-pizza">
 									<div>{pizza.size}cm</div>
-									<Typography>
+
+									<Divider className="divider" />
+
+									<Typography variant="h5">
 										{pizza.name}
 									</Typography>
 
