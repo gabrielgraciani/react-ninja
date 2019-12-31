@@ -1,27 +1,44 @@
-import React from 'react';
+import React, {useState, useContext} from 'react';
 import {AppBar, Toolbar, IconButton, Typography, Menu, MenuItem} from '@material-ui/core';
 import {AccountCircle} from '@material-ui/icons';
 import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
+import {AuthContext} from 'contexts/auth';
 
 
-const Main = () => (
-	<AppBar>
-		<Toolbar>
-			<div className="logo-header">
-				<Logo />
-			</div>
+const Main = () => {
+	const {logout, userInfo} = useContext(AuthContext);
+	const [anchorElement, setAnchorElement] = useState(null);
+	const handleOpenMenu = (e) => {
+		setAnchorElement(e.target);
+	};
+	const handleClose = () => {
+		setAnchorElement(null);
+	};
 
-			<Typography color="inherit">Olá João =)</Typography>
+	return(
+		<AppBar>
+			<Toolbar className="indent-padrao">
+				<div className="logo-header">
+					<Logo />
+				</div>
 
-			<IconButton color="inherit">
-				<AccountCircle />
-			</IconButton>
+				<Typography color="inherit">Olá {userInfo.user.email} =) </Typography>
+				{/*<Typography color="inherit">Olá {userInfo.user.displayName.split(' ')[0])} =) </Typography> */}
 
-			<Menu open>
-				<MenuItem>Sair</MenuItem>
-			</Menu>
-		</Toolbar>
-	</AppBar>
-);
+				<IconButton color="inherit" onClick={handleOpenMenu}>
+					<AccountCircle />
+				</IconButton>
+
+				<Menu
+					open={!!anchorElement}
+					onClose={handleClose}
+					anchorEl={anchorElement}
+				>
+					<MenuItem onClick={logout}>Sair</MenuItem>
+				</Menu>
+			</Toolbar>
+		</AppBar>
+	)
+};
 
 export default Main;

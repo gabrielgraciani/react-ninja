@@ -2,6 +2,7 @@
 #wrap_login svg{width:100%;}
 #wrap_login .githubbutton{text-transform:none; font-size:25px; padding:15px; max-width:480px;}
 
+.indent-padrao{max-width:980px; margin:0 auto; width:100%;}
 .logo-header{flex-grow: 1;}
 .logo-header svg{width:200px; height:50px;}
 .logo-header svg path{fill:#fff; stroke:#fff;}
