@@ -9,15 +9,18 @@ const App = () => (
 
 class CounterClass extends React.Component{
 	state = {
-		counter: 0
+		counter: 0,
+		toggle: false
 	};
 
 	componentDidMount(){
 		this.updateDocumentTitle()
 	}
 
-	componentDidUpdate(){
-		this.updateDocumentTitle()
+	componentDidUpdate(prevProps, prevState){
+		if(prevState.counter !== this.state.counter){
+			this.updateDocumentTitle()
+		}
 	}
 
 	updateDocumentTitle(){
@@ -26,6 +29,7 @@ class CounterClass extends React.Component{
 
 	render(){
 		return(
+			<>
 			<Counter
 				counter={this.state.counter}
 				increment={() => {
@@ -39,18 +43,25 @@ class CounterClass extends React.Component{
 					}))
 				}}
 			/>
+			{this.state.toggle && <h1>toggle</h1>}
+			<button onClick={() => this.setState({
+				toggle: !this.state.toggle
+			})}>toggle</button>
+			</>
 		)
 	}
 }
 
 function CounterFunction(){
 	const [counter, setCounter] = useState(0);
+	const [toggle, setToggle] = useState(false);
 
 	useEffect(() => {
 		document.title = `CounterFunction: ${counter}`;
-	});
+	}, [counter]);
 
 	return(
+		<>
 		<Counter
 			counter={counter}
 			increment={() => {
@@ -60,6 +71,10 @@ function CounterFunction(){
 				setCounter(counter => counter - 1);
 			}}
 		/>
+
+		{toggle && <h1>toggle</h1>}
+		<button onClick={() => setToggle(!toggle)}>Toggle</button>
+		</>
 	)
 }
 
