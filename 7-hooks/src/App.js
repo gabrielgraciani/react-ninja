@@ -36,10 +36,10 @@ function CounterFunction(){
 		<Counter
 			counter={counter}
 			increment={() => {
-				setCounter(c => c + 1);
+				setCounter(counter => counter + 1);
 			}}
 			decrement={() =>{
-				setCounter(c => c - 1);
+				setCounter(counter => counter - 1);
 			}}
 		/>
 	)
