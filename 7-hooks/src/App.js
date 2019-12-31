@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 const App = () => (
 	<div style={{display: 'flex', justifyContent:'space-around'}}>
@@ -9,12 +9,23 @@ const App = () => (
 
 class CounterClass extends React.Component{
 	state = {
-		counter: 0,
-		toggle: false
+		counter: 0
 	};
+
+	componentDidMount(){
+		this.updateDocumentTitle()
+	}
+
+	componentDidUpdate(){
+		this.updateDocumentTitle()
+	}
+
+	updateDocumentTitle(){
+		document.title = `CounterClass ${this.state.counter}`;
+	}
+
 	render(){
 		return(
-			<>
 			<Counter
 				counter={this.state.counter}
 				increment={() => {
@@ -28,56 +39,27 @@ class CounterClass extends React.Component{
 					}))
 				}}
 			/>
-
-			{this.state.toggle && <h1>Visivel</h1>}
-			<button onClick={() => {
-				this.setState((prevState) => ({
-					toggle: !prevState.toggle
-				}))
-			}}>Toggle</button>
-			</>
 		)
 	}
 }
 
 function CounterFunction(){
-	const [state, setState] = useState({
-		counter: 0,
-		toggle: false
+	const [counter, setCounter] = useState(0);
+
+	useEffect(() => {
+		document.title = `CounterFunction: ${counter}`;
 	});
-	const [toggle, setToggle] = useState(false);
+
 	return(
-		<>
 		<Counter
-			counter={state.counter}
+			counter={counter}
 			increment={() => {
-				setState(prevState => {
-					return{
-						...prevState,
-						counter: prevState.counter + 1
-					}
-				});
+				setCounter(counter => counter + 1);
 			}}
 			decrement={() =>{
-				setState(prevState => {
-					return{
-						...prevState,
-						counter: prevState.counter - 1
-					}
-				});
+				setCounter(counter => counter - 1);
 			}}
 		/>
-
-		{state.toggle && <h1>Visivel</h1>}
-		<button onClick={() => {
-			setState((prevState) =>{
-				return{
-					...prevState,
-					toggle: !prevState.toggle
-				}
-			})
-		}}>Toggle</button>
-		</>
 	)
 }
 
