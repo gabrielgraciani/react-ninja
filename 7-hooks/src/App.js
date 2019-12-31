@@ -16,14 +16,14 @@ class CounterClass extends React.Component{
 			<Counter
 				counter={this.state.counter}
 				increment={() => {
-					this.setState({
-						counter: this.state.counter +1
-					})
+					this.setState((prevState) => ({
+						counter: prevState.counter +1
+					}))
 				}}
 				decrement={() =>{
-					this.setState({
-						counter: this.state.counter -1
-					})
+					this.setState((nextState) => ({
+						counter: nextState.counter -1
+					}))
 				}}
 			/>
 		)
@@ -36,10 +36,10 @@ function CounterFunction(){
 		<Counter
 			counter={counter}
 			increment={() => {
-				setCounter(counter + 1);
+				setCounter(c => c + 1);
 			}}
 			decrement={() =>{
-				setCounter(counter - 1);
+				setCounter(c => c - 1);
 			}}
 		/>
 	)
