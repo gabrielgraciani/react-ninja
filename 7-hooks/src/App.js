@@ -52,18 +52,30 @@ class CounterClass extends React.Component{
 	}
 }
 
-function CounterFunction(){
+function useCounter(){
 	const [counter, setCounter] = useState(0);
-
-	useEffect(() => {
-		setInterval(() => {
-			setCounter((counter) => counter + 1);
-		}, 1000)
-	}, []);
 
 	useEffect(() => {
 		document.title = `CounterFunction: ${counter}`;
 	}, [counter]);
+
+	return [counter, setCounter];
+}
+
+function useDidMount(callback){
+	useEffect(callback, []);
+}
+
+function CounterFunction(){
+	const [counter, setCounter ] = useCounter();
+
+	useDidMount(() => {
+		setInterval(() => {
+			setCounter((counter) => counter + 1);
+		}, 1000)
+	});
+
+
 
 	return(
 		<Counter
