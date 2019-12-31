@@ -14,7 +14,7 @@ const Main = () => {
 	const handleClose = () => {
 		setAnchorElement(null);
 	};
-	const userName = userInfo.user.email
+	const userName = userInfo.user.email.split('t')[0];
 
 	return(
 		<>
@@ -43,17 +43,17 @@ const Main = () => {
 
 			<div className="main">
 				<Grid container direction="column" alignItems="center">
-					<Typography variant="h3" gutterBottom>
+					<Typography variant="h3" gutterBottom className="pizza-typography">
 						O que vai ser hoje, {userName}? =)
 					</Typography>
 
-					<Typography variant="h4" gutterBottom>
+					<Typography variant="h4" gutterBottom className="pizza-typography">
 						Escolha o tamanho da pizza
 					</Typography>
 
-					<Grid container spacing={3}>
+					<Grid container spacing={3} className="container-pizza">
 						{pizzaSizes.map((pizza) => (
-							<Grid item key={pizza.id} xs={4}>
+							<Grid item key={pizza.id} xs>
 								<Paper className="paper-pizza">
 									<div className="pizza-imagem">
 										<span>
