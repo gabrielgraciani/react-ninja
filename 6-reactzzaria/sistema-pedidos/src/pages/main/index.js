@@ -1,5 +1,5 @@
 import React, {useState, useContext} from 'react';
-import {AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Grid} from '@material-ui/core';
+import {AppBar, Toolbar, IconButton, Typography, Menu, MenuItem, Grid, Paper} from '@material-ui/core';
 import {AccountCircle} from '@material-ui/icons';
 import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
 import {AuthContext} from 'contexts/auth';
@@ -42,16 +42,59 @@ const Main = () => {
 			</AppBar>
 
 			<div className="main">
-				<Grid container justify="center">
-					<Grid item>
-						<Typography variant="h3">
-							O que vai ser hoje, {userName}? =)
-						</Typography>
+				<Grid container direction="column" alignItems="center">
+					<Typography variant="h3">
+						O que vai ser hoje, {userName}? =)
+					</Typography>
+
+					<Typography variant="h4">
+						Escolha o tamanho da pizza
+					</Typography>
+
+					<Grid container spacing={3}>
+						{pizzaSizes.map((pizza) => (
+							<Grid item key={pizza.id} xs={4}>
+								<Paper style={{padding: 20}}>
+									<div>{pizza.size}cm</div>
+									<Typography>
+										{pizza.name}
+									</Typography>
+
+									<Typography>
+										{pizza.slices} fatias, {pizza.flavours} sabores
+									</Typography>
+								</Paper>
+							</Grid>
+						))}
 					</Grid>
 				</Grid>
 			</div>
 		</>
 	)
 };
+
+const pizzaSizes = [
+	{
+		id: 0,
+		name: 'Pequena',
+		size: 28,
+		slices: 2,
+		flavours: 1
+	},
+	{
+		id: 1,
+		name: 'Média',
+		size: 30,
+		slices: 6,
+		flavours: 2
+	},
+	{
+		id: 2,
+		name: 'Grande',
+		size: 32,
+		slices: 8,
+		flavours: 3
+	}
+];
 
 export default Main;
