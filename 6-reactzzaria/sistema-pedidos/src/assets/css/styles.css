@@ -6,3 +6,5 @@
 .logo-header{flex-grow: 1;}
 .logo-header svg{width:200px; height:50px;}
 .logo-header svg path{fill:#fff; stroke:#fff;}
+
+.main{padding:80px 20px 20px;}
