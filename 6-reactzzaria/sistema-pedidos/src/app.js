@@ -24,7 +24,7 @@ function App ({ location }) {
 		});
 
 		window.logout = logout;
-	}, []);
+	}, [logout, setUserInfo]);
 
 	if(!didCheckUserIn){
 		return <LinearProgress />

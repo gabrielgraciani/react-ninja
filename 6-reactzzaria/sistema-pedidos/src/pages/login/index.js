@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {Button, Grid} from '@material-ui/core';
-import {ReactComponent as Logo} from './logo-react-zzaria.svg';
+import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
 import {AuthContext} from 'contexts/auth';
 
 
