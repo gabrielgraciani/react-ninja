@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {Button, Grid} from '@material-ui/core';
 import {ReactComponent as Logo} from './logo-react-zzaria.svg';
 import firebase from 'firebase/app';
@@ -17,11 +17,6 @@ measurementId: "G-XDP1NGPZFX"
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-const login = () =>{
-	const provider = new firebase.auth.GithubAuthProvider();
-	firebase.auth().signInWithRedirect(provider);
-};
-
 function Login(){
 	const [userInfo, setUserInfo] = useState({
 		isUserLoggedIn: false,
@@ -38,9 +33,14 @@ function Login(){
 				user
 			});
 		})
-	}, [])
+	}, []);
 
-	const logout = () =>{
+	const login = useCallback(() =>{
+		const provider = new firebase.auth.GithubAuthProvider();
+		firebase.auth().signInWithRedirect(provider);
+	}, []);
+
+	const logout = useCallback(() =>{
 		firebase.auth().signOut().then(() => {
 			console.log('deslogou');
 			setUserInfo({
@@ -48,7 +48,7 @@ function Login(){
 				user: null
 			});
 		})
-	};
+	}, []);
 
 	return(
 		<div id="wrap_login">
