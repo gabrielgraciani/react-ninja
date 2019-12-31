@@ -14,7 +14,7 @@ class CounterClass extends React.Component{
 	};
 
 	componentDidMount(){
-		this.updateDocumentTitle()
+		this.updateDocumentTitle();
 	}
 
 	componentDidUpdate(prevProps, prevState){
@@ -54,14 +54,18 @@ class CounterClass extends React.Component{
 
 function CounterFunction(){
 	const [counter, setCounter] = useState(0);
-	const [toggle, setToggle] = useState(false);
+
+	useEffect(() => {
+		setInterval(() => {
+			setCounter((counter) => counter + 1);
+		}, 1000)
+	}, []);
 
 	useEffect(() => {
 		document.title = `CounterFunction: ${counter}`;
 	}, [counter]);
 
 	return(
-		<>
 		<Counter
 			counter={counter}
 			increment={() => {
@@ -72,9 +76,6 @@ function CounterFunction(){
 			}}
 		/>
 
-		{toggle && <h1>toggle</h1>}
-		<button onClick={() => setToggle(!toggle)}>Toggle</button>
-		</>
 	)
 }
 
