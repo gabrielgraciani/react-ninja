@@ -55,7 +55,11 @@ const Main = () => {
 						{pizzaSizes.map((pizza) => (
 							<Grid item key={pizza.id} xs={4}>
 								<Paper className="paper-pizza">
-									<div>{pizza.size}cm</div>
+									<div className="pizza-imagem">
+										<span>
+											{pizza.size}cm
+										</span>
+									</div>
 
 									<Divider className="divider" />
 
