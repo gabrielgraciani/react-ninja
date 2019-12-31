@@ -41,23 +41,41 @@ class CounterClass extends React.Component{
 }
 
 function CounterFunction(){
-	const [counter, setCounter] = useState(0);
+	const [state, setState] = useState({
+		counter: 0,
+		toggle: false
+	});
 	const [toggle, setToggle] = useState(false);
 	return(
 		<>
 		<Counter
-			counter={counter}
+			counter={state.counter}
 			increment={() => {
-				setCounter(counter => counter + 1);
+				setState(prevState => {
+					return{
+						...prevState,
+						counter: prevState.counter + 1
+					}
+				});
 			}}
 			decrement={() =>{
-				setCounter(counter => counter - 1);
+				setState(prevState => {
+					return{
+						...prevState,
+						counter: prevState.counter - 1
+					}
+				});
 			}}
 		/>
 
-		{toggle && <h1>Visivel</h1>}
+		{state.toggle && <h1>Visivel</h1>}
 		<button onClick={() => {
-			setToggle(!toggle)
+			setState((prevState) =>{
+				return{
+					...prevState,
+					toggle: !prevState.toggle
+				}
+			})
 		}}>Toggle</button>
 		</>
 	)
