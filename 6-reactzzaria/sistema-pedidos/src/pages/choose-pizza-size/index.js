@@ -3,7 +3,7 @@ import {AuthContext} from 'contexts/auth';
 import {Grid, Paper, Divider} from '@material-ui/core';
 import pizzaSizes from 'fake-data/pizzas-sizes';
 import {Link} from 'react-router-dom';
-
+import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
 
 const ChoosePizzaSize = () => {
 	const {userInfo} = useContext(AuthContext);
@@ -24,7 +24,7 @@ const ChoosePizzaSize = () => {
 				{pizzaSizes.map((pizza) => (
 					<Grid item key={pizza.id} xs>
 						<Link to={{
-							pathname: '/sabores-da-pizza',
+							pathname: CHOOSE_PIZZA_FLAVOURS,
 							state: pizza
 						}} className="paper-pizza">
 							<Paper className="full">
