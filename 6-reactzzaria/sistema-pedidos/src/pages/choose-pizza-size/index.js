@@ -1,6 +1,7 @@
 import React, {useContext} from 'react';
 import {AuthContext} from 'contexts/auth';
 import {Grid, Paper, Divider} from '@material-ui/core';
+import pizzaSizes from 'fake-data/pizzas-sizes';
 
 
 const ChoosePizzaSize = () => {
@@ -50,28 +51,6 @@ function singularOrPlural(amount, singular, plural){
 	return amount === 1 ? singular : plural;
 }
 
-const pizzaSizes = [
-	{
-		id: 0,
-		name: 'Pequena',
-		size: 28,
-		slices: 2,
-		flavours: 1
-	},
-	{
-		id: 1,
-		name: 'Média',
-		size: 30,
-		slices: 6,
-		flavours: 2
-	},
-	{
-		id: 2,
-		name: 'Grande',
-		size: 32,
-		slices: 8,
-		flavours: 3
-	}
-];
+
 
 export default ChoosePizzaSize;
