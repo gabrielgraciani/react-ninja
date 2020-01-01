@@ -23,7 +23,10 @@ const ChoosePizzaSize = () => {
 			<Grid container spacing={3} className="container-pizza">
 				{pizzaSizes.map((pizza) => (
 					<Grid item key={pizza.id} xs>
-						<Link to="/sabores-da-pizza" className="paper-pizza">
+						<Link to={{
+							pathname: '/sabores-da-pizza',
+							state: pizza
+						}} className="paper-pizza">
 							<Paper className="full">
 								<div className="pizza-imagem">
 									<span>
