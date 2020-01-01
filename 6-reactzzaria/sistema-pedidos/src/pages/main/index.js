@@ -70,7 +70,7 @@ const Main = () => {
 									</div>
 
 									<div className="texto">
-										<span>{pizza.slices} fatias, {pizza.flavours} sabores</span>
+										<span>{pizza.slices} fatias, {pizza.flavours} {singularOrPlural(pizza.flavours, 'sabor', 'sabores')}</span>
 									</div>
 								</Paper>
 							</Grid>
@@ -81,6 +81,10 @@ const Main = () => {
 		</>
 	)
 };
+
+function singularOrPlural(amount, singular, plural){
+	return amount === 1 ? singular : plural;
+}
 
 const pizzaSizes = [
 	{
