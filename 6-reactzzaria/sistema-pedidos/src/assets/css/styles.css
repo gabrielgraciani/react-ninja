@@ -1,3 +1,4 @@
+h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-serif; font-weight: 400; line-height: 1.167; letter-spacing: 0em;}
 #wrap_login{padding:30px;}
 #wrap_login svg{width:100%;}
 #wrap_login .githubbutton{text-transform:none; font-size:25px; padding:15px; max-width:480px;}
@@ -17,3 +18,13 @@
 .pizza-imagem:before{content:''; position:absolute; transform:rotate(45deg); background:#ccc; width:160px; height:1px;}
 .pizza-imagem span{position:relative; z-index:9; background:#fff; font-size:20px; height:80px; width:80px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
 .pizza-typography{text-align:center;}
+
+.texto{text-align:center;}
+.texto.top{margin-top:20px;}
+.texto.bottom{margin-bottom:20px;}
+.texto h1{}
+.texto h2{}
+.texto h3{font-size: 3rem; }
+.texto h4{font-size: 2.125rem;}
+.texto h5{font-size: 1.5rem;}
+.texto span{font-size: 1rem;}

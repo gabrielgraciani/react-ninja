@@ -24,7 +24,9 @@ const Main = () => {
 						<Logo />
 					</div>
 
-					<Typography color="inherit">Olá {userName} =) </Typography>
+					<div className="texto">
+						Olá {userName} =)
+					</div>
 					{/*<Typography color="inherit">Olá {userInfo.user.displayName.split(' ')[0])} =) </Typography> */}
 
 					<IconButton color="inherit" onClick={handleOpenMenu}>
@@ -43,13 +45,13 @@ const Main = () => {
 
 			<div className="main">
 				<Grid container direction="column" alignItems="center">
-					<Typography variant="h3" gutterBottom className="pizza-typography">
-						O que vai ser hoje, {userName}? =)
-					</Typography>
+					<div className="texto top bottom">
+						<h3>O que vai ser hoje, {userName}? =)</h3>
+					</div>
 
-					<Typography variant="h4" gutterBottom className="pizza-typography">
-						Escolha o tamanho da pizza
-					</Typography>
+					<div className="texto">
+						<h4>Escolha o tamanho da pizza</h4>
+					</div>
 
 					<Grid container spacing={3} className="container-pizza">
 						{pizzaSizes.map((pizza) => (
@@ -63,13 +65,13 @@ const Main = () => {
 
 									<Divider className="divider" />
 
-									<Typography variant="h5">
-										{pizza.name}
-									</Typography>
+									<div className="texto">
+										<h5>{pizza.name}</h5>
+									</div>
 
-									<Typography>
-										{pizza.slices} fatias, {pizza.flavours} sabores
-									</Typography>
+									<div className="texto">
+										<span>{pizza.slices} fatias, {pizza.flavours} sabores</span>
+									</div>
 								</Paper>
 							</Grid>
 						))}
