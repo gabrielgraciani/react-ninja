@@ -11,7 +11,9 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 .main{padding:80px 20px 20px;}
 
 .container-pizza{padding:20px;}
-.paper-pizza{display:flex; flex-direction:column; align-items:center; min-width:250px; padding:20px 0;}
+.paper-pizza{transition:all .4s ease;display:flex; flex-direction:column; align-items:center; min-width:250px; padding:20px 0; text-decoration:none;}
+.paper-pizza:hover{transform:translateY(-3%);}
+.paper-pizza .full{width:100%; display:flex; flex-direction:column; align-items:center; min-width:250px; padding:20px 0;}
 .divider{margin:20px 0 !important; width:100%;}
 .pizza-imagem{position:relative; height:200px; width:200px; border:1px solid #ccc; border-radius:50%; display:flex; align-items:center; justify-content:center;}
 .pizza-imagem:after{content:''; position:absolute; transform:rotate(45deg); background:#ccc; width:1px; height:160px;}
