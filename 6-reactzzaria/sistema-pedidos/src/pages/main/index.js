@@ -6,7 +6,6 @@ import Header from '../header';
 
 const Main = () => {
 	const {userInfo} = useContext(AuthContext);
-	const userName = userInfo.user.email.split('t')[0];
 
 	return(
 		<>
@@ -15,7 +14,7 @@ const Main = () => {
 			<div className="main">
 				<Grid container direction="column" alignItems="center">
 					<div className="texto top bottom">
-						<h3>O que vai ser hoje, {userName}? =)</h3>
+						<h3>O que vai ser hoje, {userInfo.user.firstName}? =)</h3>
 					</div>
 
 					<div className="texto">

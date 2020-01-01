@@ -18,7 +18,10 @@ function App ({ location }) {
 			console.log('dados do usuário:', user);
 			setUserInfo({
 				isUserLoggedIn: !!user,
-				user
+				user: !!user && {
+					...user,
+					firstName: user.email.split('t')[0]
+				}
 			});
 			setDidCheckUserIn(true);
 		});

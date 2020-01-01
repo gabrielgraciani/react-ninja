@@ -14,7 +14,6 @@ const Header = () => {
 	const handleClose = () => {
 		setAnchorElement(null);
 	};
-	const userName = userInfo.user.email.split('t')[0];
 
 
 	return(
@@ -25,7 +24,7 @@ const Header = () => {
 				</div>
 
 				<div className="texto">
-					Olá {userName} =)
+					Olá {userInfo.user.firstName} =)
 				</div>
 				{/*<Typography color="inherit">Olá {userInfo.user.displayName.split(' ')[0])} =) </Typography> */}
 
