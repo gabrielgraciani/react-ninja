@@ -3,6 +3,8 @@ import {AppBar, Toolbar, IconButton, Menu, MenuItem} from '@material-ui/core';
 import {AccountCircle} from '@material-ui/icons';
 import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
 import {AuthContext} from 'contexts/auth';
+import {Link} from 'react-router-dom';
+import {HOME} from 'routes';
 
 
 const Header = () => {
@@ -20,7 +22,9 @@ const Header = () => {
 		<AppBar>
 			<Toolbar className="indent-padrao">
 				<div className="logo-header">
-					<Logo />
+					<Link to={HOME}>
+						<Logo />
+					</Link>
 				</div>
 
 				<div className="texto">

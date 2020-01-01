@@ -1,5 +1,4 @@
 import React, { lazy, useEffect, useContext, Suspense, useState } from 'react';
-import t from 'prop-types';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { LinearProgress } from '@material-ui/core';
 import firebase from 'services/firebase';
@@ -51,9 +50,5 @@ function App ({ location }) {
 		</Suspense>
 	)
 }
-
-App.propTypes = {
-	location: t.object.isRequired
-};
 
 export default App

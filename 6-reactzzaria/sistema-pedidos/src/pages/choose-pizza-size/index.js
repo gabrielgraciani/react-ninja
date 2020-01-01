@@ -4,13 +4,15 @@ import {Grid, Paper, Divider} from '@material-ui/core';
 import pizzaSizes from 'fake-data/pizzas-sizes';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
+import HeaderContent from 'ui/header-content';
+import SingularOrPlural from 'utils';
 
 const ChoosePizzaSize = () => {
 	const {userInfo} = useContext(AuthContext);
 
 	return(
 		<>
-			<Grid container direction="column" alignItems="center">
+			<HeaderContent>
 				<div className="texto top bottom">
 					<h3>O que vai ser hoje, {userInfo.user.firstName}? =)</h3>
 				</div>
@@ -18,7 +20,7 @@ const ChoosePizzaSize = () => {
 				<div className="texto">
 					<h4>Escolha o tamanho da pizza</h4>
 				</div>
-			</Grid>
+			</HeaderContent>
 
 			<Grid container spacing={3} className="container-pizza">
 				{pizzaSizes.map((pizza) => (
@@ -41,7 +43,7 @@ const ChoosePizzaSize = () => {
 								</div>
 
 								<div className="texto">
-									<span>{pizza.slices} fatias, {pizza.flavours} {singularOrPlural(pizza.flavours, 'sabor', 'sabores')}</span>
+									<span>{pizza.slices} fatias, {pizza.flavours} {SingularOrPlural(pizza.flavours, 'sabor', 'sabores')}</span>
 								</div>
 							</Paper>
 						</Link>
@@ -53,9 +55,7 @@ const ChoosePizzaSize = () => {
 };
 
 
-function singularOrPlural(amount, singular, plural){
-	return amount === 1 ? singular : plural;
-}
+
 
 
 
