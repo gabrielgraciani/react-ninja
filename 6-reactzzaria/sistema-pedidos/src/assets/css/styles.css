@@ -26,7 +26,9 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 
 .container-pizza .full{transition:all .4s ease;}
 .container-pizza .full:hover{transform:translateY(-3%);}
-.container-pizza label{display:flex; flex-direction:column; align-items:center; min-width:250px; padding:20px 0; text-decoration:none;}
+.container-pizza label{cursor:pointer; transition:all .3s ease; border:2px solid transparent; display:flex; flex-direction:column; align-items:center; min-width:250px; padding:20px 0; text-decoration:none;}
+.container-pizza label.active{border:2px solid #000;}
+.container-pizza label input{display:none;}
 
 .texto{text-align:center;}
 .texto.top{margin-top:20px;}

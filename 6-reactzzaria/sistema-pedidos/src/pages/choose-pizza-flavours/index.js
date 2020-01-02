@@ -46,7 +46,7 @@ const ChoosePizzaFlavours = ({ location }) => {
 				{pizzasFlavours.map((pizza) => (
 					<Grid item key={pizza.id} xs>
 						<Paper className="full">
-							<label>
+							<label className={`${checkboxes[pizza.id] ? "active" : ""}`}>
 								<input type="checkbox"
 									   value=""
 									   checked={!!checkboxes[pizza.id]}
