@@ -20,6 +20,8 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 .pizza-imagem:before{content:''; position:absolute; transform:rotate(45deg); background:#ccc; width:160px; height:1px;}
 .pizza-imagem span{position:relative; z-index:9; background:#fff; font-size:20px; height:80px; width:80px; border-radius:50%; display:flex; align-items:center; justify-content:center;}
 .pizza-typography{text-align:center;}
+.pizza-imagem.icon{border:0; border-radius:0;}
+.pizza-imagem img{width:100%;}
 
 .texto{text-align:center;}
 .texto.top{margin-top:20px;}
