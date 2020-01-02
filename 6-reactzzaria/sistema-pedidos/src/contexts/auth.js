@@ -1,5 +1,4 @@
 import React, {createContext, useCallback, useState} from 'react';
-import t from 'prop-types';
 import firebase from 'services/firebase';
 
 export const AuthContext = createContext();
@@ -37,9 +36,5 @@ function Auth({children}){
 		</AuthContext.Provider>
 	)
 }
-
-Auth.propTypes = {
-	children: t.node.isRequired
-};
 
 export default  Auth;
