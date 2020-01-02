@@ -21,6 +21,8 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 .pizza-typography{text-align:center;}
 .pizza-imagem.icon{border:0; border-radius:0;}
 .pizza-imagem img{width:100%;}
+.pizza-imagem.icon:after{display:none;}
+.pizza-imagem.icon:before{display:none;}
 
 .container-pizza .full{transition:all .4s ease;}
 .container-pizza .full:hover{transform:translateY(-3%);}
