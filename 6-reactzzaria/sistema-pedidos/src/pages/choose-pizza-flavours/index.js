@@ -68,6 +68,12 @@ const ChoosePizzaFlavours = ({ location }) => {
 					</Grid>
 				))}
 			</Grid>
+
+			<div id="wrap_footer">
+				<div className="indent-padrao">
+					asdasd
+				</div>
+			</div>
 		</>
 	)
 };

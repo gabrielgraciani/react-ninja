@@ -3,12 +3,12 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 #wrap_login svg{width:100%;}
 #wrap_login .githubbutton{text-transform:none; font-size:25px; padding:15px; max-width:480px;}
 
-.indent-padrao{max-width:980px; margin:0 auto; width:100%;}
+.indent-padrao{max-width:1280px; margin:0 auto; width:100%;}
 .logo-header{flex-grow: 1;}
 .logo-header svg{width:200px; height:50px;}
 .logo-header svg path{fill:#fff; stroke:#fff;}
 
-.main{padding:80px 20px 20px;}
+.main{padding:80px 0px 20px;}
 
 .container-pizza{padding:20px;}
 .paper-pizza{display:flex; flex-direction:column; align-items:center; min-width:250px; padding:20px 0; text-decoration:none;}
@@ -39,3 +39,7 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 .texto h4{font-size: 2.125rem;}
 .texto h5{font-size: 1.5rem;}
 .texto span{font-size: 1rem;}
+
+
+#wrap_footer{box-shadow: 0 0 3px #bdbdbd; width:100%; padding: 20px;}
+#wrap_footer .indent-padrao{padding:0 24px;}
