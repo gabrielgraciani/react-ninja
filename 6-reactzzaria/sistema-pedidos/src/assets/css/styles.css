@@ -1,4 +1,10 @@
-h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-serif; font-weight: 400; line-height: 1.167; letter-spacing: 0em;}
+h1,h2,h3,h4,h5,span{color:#000; margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-serif; font-weight: 400; line-height: 1.167; letter-spacing: 0em;}
+h1{}
+h2{}
+h3{font-size: 3rem; }
+h4{font-size: 2.125rem;}
+h5{font-size: 1.5rem;}
+span{font-size: 1rem;}
 
 #root{min-height:100vh; display:flex; flex-direction:column;}
 
@@ -6,12 +12,49 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 #wrap_login svg{width:100%;}
 #wrap_login .githubbutton{text-transform:none; font-size:25px; padding:15px; max-width:480px;}
 
+.indent{width:90%; max-width:1280px; margin:0 auto;}
+
+#wrap_header{width:100%; position:relative; background:#3f51b5;}
+#wrap_header .indent{ padding:10px 0; display:flex; justify-content:space-between;}
+#wrap_header .indent .logo svg{width:200px; height:50px;}
+#wrap_header .indent .logo svg path{fill:#fff; stroke:#fff;}
+#wrap_header .indent .conteudo{display:flex; align-items:center;}
+#wrap_header .indent .conteudo .texto{}
+#wrap_header .indent .conteudo .texto span{color:#fff;}
+#wrap_header .indent .conteudo .menu{}
+#wrap_header .indent .conteudo .menu svg path{fill:#fff;}
+
+
+#wrap_bloco_padrao{width:100%; position:relative;}
+#wrap_bloco_padrao .indent{display:flex; flex-direction:column; align-items:center;}
+#wrap_bloco_padrao .indent .texto{}
+#wrap_bloco_padrao .indent .texto{text-align:center;}
+#wrap_bloco_padrao .indent .texto.top{margin-top:20px;}
+#wrap_bloco_padrao .indent .texto.bottom{margin-bottom:20px;}
+
+
+#wrap_pizza{width:100%; position:relative; margin:40px 0 0 0;}
+#wrap_pizza .indent{max-width:1600px; display:grid; grid-template-columns: repeat(auto-fit, minmax(30%, 1fr)); grid-gap: 30px;}
+#wrap_pizza .indent a{text-decoration:none;}
+#wrap_pizza .indent .item{transition:all .4s ease; padding:15px 0; background:#fff; display:flex; align-items:center; justify-content:center; flex-direction:column;}
+#wrap_pizza .indent .item:hover{box-shadow: 0 0 10px #c0c0c0; transform:translateY(-3%);}
+#wrap_pizza .indent .item .imagem{width:200px; height:200px; border:1px solid #ccc; border-radius:50%; position:relative; display:flex; align-items:center; justify-content:center; text-align:center; }
+#wrap_pizza .indent .item .imagem:after{content:''; position:absolute; transform:rotate(45deg); background:#ccc; width:1px; height:160px;}
+#wrap_pizza .indent .item .imagem:before{content:''; position:absolute; transform:rotate(45deg); background:#ccc; width:160px; height:1px;}
+#wrap_pizza .indent .item .imagem span{position:relative; z-index:9; background:#fff; border-radius:50%; font-size:20px; height:80px; width:80px; display:flex; align-items:center; justify-content:center;}
+#wrap_pizza .indent .item .borda{border-bottom:1px solid #ccc; width:100%; height:1px; margin:15px 0 20px;}
+#wrap_pizza .indent .item .texto{text-align:center;}
+
+
+
+
+
 .indent-padrao{max-width:1280px; margin:0 auto; width:100%;}
 .logo-header{flex-grow: 1;}
 .logo-header svg{width:200px; height:50px;}
 .logo-header svg path{fill:#fff; stroke:#fff;}
 
-.main{padding:80px 0 0; overflow-x:hidden; height:100vh; display:flex; flex-direction:column; justify-content:flex-start;}
+.main{padding:80px 0 0; height:100vh; display:flex; flex-direction:column; justify-content:flex-start;}
 
 .container-pizza{padding:20px; height:100%;}
 .paper-pizza{display:flex; flex-direction:column; align-items:center; min-width:250px; padding:20px 0; text-decoration:none;}
@@ -33,15 +76,7 @@ h1,h2,h3,h4,h5,span{margin:0; font-family: "Roboto", "Helvetica", "Arial", sans-
 .container-pizza label.active{border:2px solid #ff4081;}
 .container-pizza label input{display:none;}
 
-.texto{text-align:center;}
-.texto.top{margin-top:20px;}
-.texto.bottom{margin-bottom:20px;}
-.texto h1{}
-.texto h2{}
-.texto h3{font-size: 3rem; }
-.texto h4{font-size: 2.125rem;}
-.texto h5{font-size: 1.5rem;}
-.texto span{font-size: 1rem;}
+
 
 
 #wrap_footer{box-shadow: 0 0 3px #bdbdbd; width:100%; padding: 20px;}

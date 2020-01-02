@@ -1,6 +1,5 @@
 import React, {useContext} from 'react';
 import {AuthContext} from 'contexts/auth';
-import {Grid, Paper, Divider} from '@material-ui/core';
 import pizzaSizes from 'fake-data/pizzas-sizes';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
@@ -22,41 +21,29 @@ const ChoosePizzaSize = () => {
 				</div>
 			</HeaderContent>
 
-			<Grid container spacing={3} className="container-pizza">
-				{pizzaSizes.map((pizza) => (
-					<Grid item key={pizza.id} xs>
+			<div id="wrap_pizza">
+				<div className="indent">
+					{pizzaSizes.map((pizza) => (
 						<Link to={{
 							pathname: CHOOSE_PIZZA_FLAVOURS,
 							state: pizza
-						}} className="paper-pizza">
-							<Paper className="full">
-								<div className="pizza-imagem">
-									<span>
-										{pizza.size}cm
-									</span>
-								</div>
-
-								<Divider className="divider" />
-
-								<div className="texto">
-									<h5>{pizza.name}</h5>
-								</div>
-
-								<div className="texto">
-									<span>{pizza.slices} fatias, {pizza.flavours} {singularOrPlural(pizza.flavours, 'sabor', 'sabores')}</span>
-								</div>
-							</Paper>
+						}}>
+						<div className="item">
+							<div className="imagem">
+								<span>{pizza.size}cm</span>
+							</div>
+							<div className="borda"></div>
+							<div className="texto">
+								<h5>{pizza.name}</h5>
+								<span>{pizza.slices} fatias, {pizza.flavours} {singularOrPlural(pizza.flavours, 'sabor', 'sabores')}</span>
+							</div>
+						</div>
 						</Link>
-					</Grid>
-				))}
-			</Grid>
+					))}
+				</div>
+			</div>
 		</>
 	)
 };
-
-
-
-
-
 
 export default ChoosePizzaSize;

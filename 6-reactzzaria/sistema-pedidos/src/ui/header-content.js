@@ -1,10 +1,12 @@
 import React from 'react';
-import {Grid} from '@material-ui/core';
 
 const HeaderContent = ({children}) => (
-	<Grid container direction="column" alignItems="center">
-		{children}
-	</Grid>
+	<div id="wrap_bloco_padrao">
+		<div className="indent">
+			{children}
+		</div>
+	</div>
+
 );
 
 export default HeaderContent;
