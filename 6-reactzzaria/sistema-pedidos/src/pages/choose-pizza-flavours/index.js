@@ -8,20 +8,30 @@ import {Grid, Paper, Divider} from '@material-ui/core';
 import {Link} from 'react-router-dom';
 
 
-const ChoosePizzaFlavours = ({location}) => {
+const ChoosePizzaFlavours = ({ location }) => {
 	const [checkboxes, setCheckboxes] = useState(() => ({}));
-	console.log('checkboxes', checkboxes);
-	if(!location.state){
+
+	if (!location.state) {
 		return <Redirect to={HOME} />
 	}
-	const {flavours, id} = location.state;
+
+	const { flavours, id } = location.state;
+
 	const handleChangeCheckbox = (pizzaId) => (e) => {
+		console.log('checkboxes', checkboxes);
+		if (
+			checkboxesChecked(checkboxes).length === flavours &&
+			e.target.checked === true
+		) {
+			return
+		}
+
 		setCheckboxes((checkboxes) => {
-			return{
+			return {
 				...checkboxes,
 				[pizzaId]: !checkboxes[pizzaId]
 			}
-		});
+		})
 	};
 
 	return(
@@ -62,5 +72,9 @@ const ChoosePizzaFlavours = ({location}) => {
 		</>
 	)
 };
+
+function checkboxesChecked (checkboxes) {
+	return Object.values(checkboxes).filter(Boolean)
+}
 
 export default ChoosePizzaFlavours;
