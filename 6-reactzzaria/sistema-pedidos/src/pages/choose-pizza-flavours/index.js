@@ -25,8 +25,9 @@ const ChoosePizzaFlavours = ({location}) => {
 			<Grid container spacing={3} className="container-pizza">
 				{pizzasFlavours.map((pizza) => (
 					<Grid item key={pizza.id} xs>
-						<Link to={{}} className="paper-pizza">
-							<Paper className="full">
+						<Paper className="full">
+							<label>
+								<input type="checkbox" />
 								<div className="pizza-imagem icon">
 									<img src={pizza.image} alt={pizza.name} />
 								</div>
@@ -40,9 +41,8 @@ const ChoosePizzaFlavours = ({location}) => {
 								<div className="texto">
 									<span>{pizza.value[id]}</span>
 								</div>
-
-							</Paper>
-						</Link>
+							</label>
+						</Paper>
 					</Grid>
 				))}
 			</Grid>
