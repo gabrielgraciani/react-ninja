@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import HeaderContent from 'ui/header-content';
-import SingularOrPlural from 'utils';
+import {singularOrPlural, toMoney} from 'utils';
 import {Redirect} from 'react-router-dom';
 import {HOME} from 'routes';
 import pizzasFlavours from 'fake-data/pizzas-flavours';
 import {Grid, Paper, Divider} from '@material-ui/core';
-import {Link} from 'react-router-dom';
 
 
 const ChoosePizzaFlavours = ({ location }) => {
@@ -38,7 +37,7 @@ const ChoosePizzaFlavours = ({ location }) => {
 		<>
 			<HeaderContent>
 				<div className="texto top">
-					<h4>Escolha até {flavours} {SingularOrPlural(flavours, 'sabor', 'sabores')}:</h4>
+					<h4>Escolha até {flavours} {singularOrPlural(flavours, 'sabor', 'sabores')}:</h4>
 				</div>
 			</HeaderContent>
 
@@ -62,7 +61,7 @@ const ChoosePizzaFlavours = ({ location }) => {
 								</div>
 
 								<div className="texto">
-									<span>{pizza.value[id]}</span>
+									<span>{toMoney(pizza.value[id])}</span>
 								</div>
 							</label>
 						</Paper>

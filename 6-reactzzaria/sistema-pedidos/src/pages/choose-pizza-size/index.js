@@ -5,7 +5,7 @@ import pizzaSizes from 'fake-data/pizzas-sizes';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
 import HeaderContent from 'ui/header-content';
-import SingularOrPlural from 'utils';
+import {singularOrPlural} from 'utils';
 
 const ChoosePizzaSize = () => {
 	const {userInfo} = useContext(AuthContext);
@@ -43,7 +43,7 @@ const ChoosePizzaSize = () => {
 								</div>
 
 								<div className="texto">
-									<span>{pizza.slices} fatias, {pizza.flavours} {SingularOrPlural(pizza.flavours, 'sabor', 'sabores')}</span>
+									<span>{pizza.slices} fatias, {pizza.flavours} {singularOrPlural(pizza.flavours, 'sabor', 'sabores')}</span>
 								</div>
 							</Paper>
 						</Link>
