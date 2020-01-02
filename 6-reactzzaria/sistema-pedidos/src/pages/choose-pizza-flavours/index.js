@@ -71,7 +71,14 @@ const ChoosePizzaFlavours = ({ location }) => {
 
 			<div id="wrap_footer">
 				<div className="indent-padrao">
-					asdasd
+					<Grid container>
+						<Grid item style={{flexGrow: '1'}}>
+							pedido
+						</Grid>
+						<Grid item>
+							acoes
+						</Grid>
+					</Grid>
 				</div>
 			</div>
 		</>
