@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import {Button, Grid} from '@material-ui/core';
 import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
 import {AuthContext} from 'contexts/auth';
 
@@ -9,16 +8,13 @@ function Login(){
 
 	return(
 		<div id="wrap_login">
-			<Grid container justify='center' spacing={7}>
-				<Grid item>
+			<div className="indent">
+				<div className="logo">
 					<Logo />
-				</Grid>
+				</div>
 
-				<Grid item xs={12} container justify="center">
-					<Button variant="contained" fullWidth className="githubbutton"
-							onClick={login}>Entrar com GitHub</Button>
-				</Grid>
-			</Grid>
+				<button className="github ripple" onClick={login}>Entrar com GitHub</button>
+			</div>
 		</div>
 	);
 }

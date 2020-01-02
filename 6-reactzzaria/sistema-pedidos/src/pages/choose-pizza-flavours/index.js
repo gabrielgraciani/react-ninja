@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import HeaderContent from 'ui/header-content';
+import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural, toMoney} from 'utils';
 import {Redirect} from 'react-router-dom';
 import {HOME} from 'routes';
 import pizzasFlavours from 'fake-data/pizzas-flavours';
-import {Grid, Paper, Divider} from '@material-ui/core';
-
 
 const ChoosePizzaFlavours = ({ location }) => {
 	const [checkboxes, setCheckboxes] = useState(() => ({}));
@@ -41,44 +40,39 @@ const ChoosePizzaFlavours = ({ location }) => {
 				</div>
 			</HeaderContent>
 
-			<Grid container spacing={3} className="container-pizza">
-				{pizzasFlavours.map((pizza) => (
-					<Grid item key={pizza.id} xs>
-						<Paper className="full">
-							<label className={`${checkboxes[pizza.id] ? "active" : ""}`}>
+			<PizzaContent>
+					{pizzasFlavours.map((pizza) => (
+						<label>
+							<div className={`item ${checkboxes[pizza.id] ? "active" : ""}`} key={pizza.id}>
 								<input type="checkbox"
 									   value=""
 									   checked={!!checkboxes[pizza.id]}
 									   onChange={handleChangeCheckbox(pizza.id)} />
-								<div className="pizza-imagem icon">
+
+								<div className="imagem">
 									<img src={pizza.image} alt={pizza.name} />
 								</div>
 
-								<Divider className="divider" />
+								<div className="borda"></div>
 
 								<div className="texto">
 									<h5>{pizza.name}</h5>
-								</div>
-
-								<div className="texto">
 									<span>{toMoney(pizza.value[id])}</span>
 								</div>
-							</label>
-						</Paper>
-					</Grid>
-				))}
-			</Grid>
+							</div>
+						</label>
+					))}
+			</PizzaContent>
 
 			<div id="wrap_footer">
-				<div className="indent-padrao">
-					<Grid container>
-						<Grid item style={{flexGrow: '1'}}>
-							pedido
-						</Grid>
-						<Grid item>
-							acoes
-						</Grid>
-					</Grid>
+				<div className="indent">
+					<div className="pedido">
+						pedidos
+					</div>
+
+					<div className="botoes">
+						botoes
+					</div>
 				</div>
 			</div>
 		</>

@@ -4,6 +4,7 @@ import pizzaSizes from 'fake-data/pizzas-sizes';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
 import HeaderContent from 'ui/header-content';
+import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural} from 'utils';
 
 const ChoosePizzaSize = () => {
@@ -21,15 +22,14 @@ const ChoosePizzaSize = () => {
 				</div>
 			</HeaderContent>
 
-			<div id="wrap_pizza">
-				<div className="indent">
+			<PizzaContent>
 					{pizzaSizes.map((pizza) => (
 						<Link to={{
 							pathname: CHOOSE_PIZZA_FLAVOURS,
 							state: pizza
 						}}>
-						<div className="item">
-							<div className="imagem">
+						<div className="item" key={pizza.id}>
+							<div className="imagem risco">
 								<span>{pizza.size}cm</span>
 							</div>
 							<div className="borda"></div>
@@ -40,8 +40,7 @@ const ChoosePizzaSize = () => {
 						</div>
 						</Link>
 					))}
-				</div>
-			</div>
+			</PizzaContent>
 		</>
 	)
 };
