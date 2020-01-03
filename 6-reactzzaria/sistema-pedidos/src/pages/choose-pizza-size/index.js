@@ -1,5 +1,5 @@
-import React, {useContext} from 'react';
-import {AuthContext} from 'contexts/auth';
+import React from 'react';
+import {useAuth} from 'hooks';
 import pizzaSizes from 'fake-data/pizzas-sizes';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
@@ -8,7 +8,7 @@ import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural} from 'utils';
 
 const ChoosePizzaSize = () => {
-	const {userInfo} = useContext(AuthContext);
+	const {userInfo} = useAuth();
 
 	return(
 		<>

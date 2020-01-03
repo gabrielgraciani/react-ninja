@@ -64,7 +64,7 @@ span{display:block; font-size: 1rem;}
 #wrap_footer .indent .pedido{flex-grow:1;}
 #wrap_footer .indent .botoes{display:flex;}
 #wrap_footer .indent .botoes .botao{width:220px;}
-#wrap_footer .indent .botoes .botao2{margin-left: 16px;}
+#wrap_footer .indent .botoes .botao2{margin-left: 16px; color:#fff;}
 
 
 @media screen and (max-width: 1080px){

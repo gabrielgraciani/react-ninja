@@ -1,15 +1,15 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import HeaderContent from 'ui/header-content';
 import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural, toMoney} from 'utils';
 import {Redirect, Link} from 'react-router-dom';
 import {HOME, CHOOSE_PIZZA_QUANTITY} from 'routes';
 import pizzasFlavours from 'fake-data/pizzas-flavours';
-import {AuthContext} from 'contexts/auth';
+import {useAuth} from 'hooks';
 
 const ChoosePizzaFlavours = ({ location }) => {
 	const [checkboxes, setCheckboxes] = useState(() => ({}));
-	const {userInfo} = useContext(AuthContext);
+	const {userInfo} = useAuth();
 
 	if (!location.state) {
 		return <Redirect to={HOME} />

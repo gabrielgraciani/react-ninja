@@ -1,14 +1,14 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {IconButton, Menu, MenuItem} from '@material-ui/core';
 import {AccountCircle} from '@material-ui/icons';
 import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
-import {AuthContext} from 'contexts/auth';
+import {useAuth} from 'hooks';
 import {Link} from 'react-router-dom';
 import {HOME} from 'routes';
 
 
 const Header = () => {
-	const {logout, userInfo} = useContext(AuthContext);
+	const {logout, userInfo} = useAuth();
 	const [anchorElement, setAnchorElement] = useState(null);
 	const handleOpenMenu = (e) => {
 		setAnchorElement(e.target);

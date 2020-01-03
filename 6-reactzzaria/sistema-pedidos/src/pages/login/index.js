@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
-import {AuthContext} from 'contexts/auth';
+import {useAuth} from 'hooks';
 
 
 function Login(){
-	const {login} = useContext(AuthContext);
+	const {login} = useAuth();
 
 	return(
 		<div id="wrap_login">
