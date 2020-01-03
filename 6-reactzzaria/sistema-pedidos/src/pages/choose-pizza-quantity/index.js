@@ -1,5 +1,7 @@
 import React from 'react';
 import HeaderContent from 'ui/header-content';
+import Footer from 'ui/footer';
+import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
 
 function ChoosePizzaQuantity() {
 	return(
@@ -18,6 +20,18 @@ function ChoosePizzaQuantity() {
 					</div>
 				</div>
 			</div>
+
+			<Footer buttons={[
+				{
+					to: CHOOSE_PIZZA_FLAVOURS,
+					children: 'Mudar sabores'
+				},
+				{
+					to: '/',
+					children: 'Finalizar Compra',
+					classname: 'azul botao2'
+				}
+			]} />
 		</>
 	)
 }

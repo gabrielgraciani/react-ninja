@@ -71,9 +71,12 @@ const ChoosePizzaFlavours = ({ location }) => {
 					children:'Mudar Tamanho'
 				},
 				{
-					to: CHOOSE_PIZZA_QUANTITY,
+					to: {
+						pathname: CHOOSE_PIZZA_QUANTITY,
+						state: location.state
+					},
 					children: 'Quantas pizzas?',
-					className: 'azul botao2'
+					classname: 'azul botao2'
 				}
 			]} />
 		</>

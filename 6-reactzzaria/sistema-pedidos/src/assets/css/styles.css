@@ -71,7 +71,7 @@ span{display:block; font-size: 1rem;}
 #wrap_footer .indent .botoes .botao{width:220px;}
 #wrap_footer .indent .botoes .botao2{margin-left: 16px; color:#fff;}
 
-#wrap_quantidade{width:100%; position:relative; margin-top:50px;}
+#wrap_quantidade{width:100%; position:relative; margin-top:50px; flex-grow:1;}
 #wrap_quantidade .indent{max-width:500px;}
 #wrap_quantidade .indent .input{width:150px;}
 #wrap_quantidade .indent .input input{font-size:80px; text-align:center;}

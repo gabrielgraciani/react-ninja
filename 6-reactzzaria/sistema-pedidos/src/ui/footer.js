@@ -18,7 +18,7 @@ function Footer({buttons, location}){
 				<div className="botoes">
 					{buttons.map((button) => (
 						<Link key={button.to} to={button.to}>
-							<button className={`botao ripple ${button.className}`}>
+							<button className={`botao ripple ${button.classname}`}>
 								{button.children}
 							</button>
 						</Link>
