@@ -1,9 +1,14 @@
 import React from 'react';
 import HeaderContent from 'ui/header-content';
 import Footer from 'ui/footer';
-import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
+import {HOME, CHOOSE_PIZZA_FLAVOURS} from 'routes';
+import {Redirect} from 'react-router-dom';
 
-function ChoosePizzaQuantity() {
+function ChoosePizzaQuantity({location}) {
+	if(!location.state){
+		return <Redirect to={HOME} />
+	}
+
 	return(
 		<>
 			<HeaderContent>
