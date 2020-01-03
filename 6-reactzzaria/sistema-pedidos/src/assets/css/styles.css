@@ -68,7 +68,7 @@ span{display:block; font-size: 1rem;}
 #wrap_footer{box-shadow: 0 0 3px #bdbdbd; width:100%;}
 #wrap_footer .indent{padding: 20px; display:flex; justify-content:space-between;}
 #wrap_footer .indent .pedido{flex-grow:1;}
-#wrap_footer .indent .botoes{display:flex;}
+#wrap_footer .indent .botoes{display:flex; align-items:center;}
 #wrap_footer .indent .botoes .botao{width:220px;}
 #wrap_footer .indent .botoes .botao2{margin-left: 16px; color:#fff;}
 
