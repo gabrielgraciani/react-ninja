@@ -3,7 +3,7 @@ import HeaderContent from 'ui/header-content';
 import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural, toMoney} from 'utils';
 import {Redirect,} from 'react-router-dom';
-import {HOME} from 'routes';
+import {HOME, CHOOSE_PIZZA_QUANTITY} from 'routes';
 import pizzasFlavours from 'fake-data/pizzas-flavours';
 import Footer from 'ui/footer';
 
@@ -65,7 +65,17 @@ const ChoosePizzaFlavours = ({ location }) => {
 					))}
 			</PizzaContent>
 
-			<Footer />
+			<Footer buttons={[
+				{
+					to: HOME,
+					children:'Mudar Tamanho'
+				},
+				{
+					to: CHOOSE_PIZZA_QUANTITY,
+					children: 'Quantas pizzas?',
+					className: 'azul botao2'
+				}
+			]} />
 		</>
 	)
 };
