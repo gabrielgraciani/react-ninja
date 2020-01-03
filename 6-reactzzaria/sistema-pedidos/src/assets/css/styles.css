@@ -26,6 +26,10 @@ span{display:block; font-size: 1rem;}
 .botao.azul.ripple{background-position: center; transition: background 0.8s;}
 .botao.azul.ripple:hover{background: #2137aa radial-gradient(circle, transparent 1%, #2137aa 1%) center/15000%;}
 .botao.azul.ripple:active{background-color: #3f51b5; background-size: 100%; transition: background 0s;}
+.botao.rosa{background:#F60057; color:#fff;}
+.botao.rosa.ripple{background-position: center; transition: background 0.8s;}
+.botao.rosa.ripple:hover{background: #c70046 radial-gradient(circle, transparent 1%, #c70046 1%) center/15000%;}
+.botao.rosa.ripple:active{background-color: #F60057; background-size: 100%; transition: background 0s;}
 .botao:disabled{opacity:0.6;}
 
 
@@ -76,6 +80,7 @@ span{display:block; font-size: 1rem;}
 #wrap_quantidade .indent{max-width:500px;}
 #wrap_quantidade .indent .input{width:150px;}
 #wrap_quantidade .indent .input input{font-size:80px; text-align:center;}
+#wrap_quantidade .indent .texto{margin-top:30px;}
 
 
 @media screen and (max-width: 1080px){

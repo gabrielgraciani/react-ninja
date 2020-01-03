@@ -31,6 +31,10 @@ function ChoosePizzaQuantity({location}) {
 					<div className="input">
 						<input type="number" value={quantity} onChange={handleChange} autoFocus />
 					</div>
+
+					<div className="texto">
+						<button className="botao ripple rosa">Adicionar e montar outra</button>
+					</div>
 				</div>
 			</div>
 
