@@ -84,11 +84,19 @@ span{display:block; font-size: 1rem;}
 	h4{font-size: 1.8rem;}
 	h5{font-size: 1.1rem;}
 	#wrap_pizza .indent{grid-template-columns: repeat(auto-fit, minmax(47%, 1fr));}
+
+	#wrap_footer .indent{flex-direction:column; align-items:center;}
+	#wrap_footer .indent .botoes{margin-top: 20px; width:100%; justify-content:space-between;}
+	#wrap_footer .indent .botoes a{width:48%;}
+	#wrap_footer .indent .botoes a .botao{width:100%; margin:10px 0;}
 }
 @media screen and (max-width: 600px){
 	#wrap_header .indent{padding:5px 0;}
 	#wrap_header .indent .logo svg{width:150px;}
 	#wrap_header .indent .conteudo .texto span{font-size:0.8em;}
+
+	#wrap_footer .indent .botoes{flex-direction:column;}
+	#wrap_footer .indent .botoes a{width:100%;}
 }
 
 
