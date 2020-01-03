@@ -82,6 +82,15 @@ span{display:block; font-size: 1rem;}
 #wrap_quantidade .indent .input input{font-size:80px; text-align:center;}
 #wrap_quantidade .indent .texto{margin-top:30px;}
 
+#wrap_checkout{width:100%; position:relative;}
+#wrap_checkout .indent{display:flex; justify-content:space-between;}
+#wrap_checkout .indent .col1{width:40%; display:flex; flex-direction:column;}
+#wrap_checkout .indent .bloco{width:100%; display:flex; flex-direction:column; flex-grow:1;}
+#wrap_checkout .indent .bloco .titulo{width:100%;}
+#wrap_checkout .indent .bloco .conteudo{margin:15px 0 0 0; width:100%; padding:15px; background:#fff; border:1px solid #c0c0c0; display:flex; flex-direction:column; flex-grow:1;}
+#wrap_checkout .indent .bloco .conteudo .item{display:flex; width:100%; align-items:center;}
+#wrap_checkout .indent .bloco.top{margin-top:40px;}
+#wrap_checkout .indent .col2{width:50%; display:flex; flex-direction:column;}
 
 @media screen and (max-width: 1080px){
 	h1{}
