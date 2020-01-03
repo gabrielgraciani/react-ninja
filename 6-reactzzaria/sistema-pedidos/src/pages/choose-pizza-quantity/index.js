@@ -21,17 +21,16 @@ function ChoosePizzaQuantity() {
 				</div>
 			</div>
 
-			<Footer buttons={[
-				{
+			<Footer buttons={{
+				back:{
 					to: CHOOSE_PIZZA_FLAVOURS,
 					children: 'Mudar sabores'
 				},
-				{
+				action:{
 					to: '/',
 					children: 'Finalizar Compra',
-					classname: 'azul botao2'
 				}
-			]} />
+			}} />
 		</>
 	)
 }

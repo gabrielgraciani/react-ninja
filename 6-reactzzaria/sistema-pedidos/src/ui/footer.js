@@ -3,7 +3,7 @@ import {useAuth} from 'hooks';
 import {withRouter, Link} from 'react-router-dom';
 import {singularOrPlural} from 'utils';
 
-function Footer({buttons, location}){
+function Footer({buttons, location, history}){
 	const {userInfo} = useAuth();
 	const {pizzaSize, pizzaFlavours} = location.state;
 	const {name, slices, flavours} = pizzaSize;
@@ -22,13 +22,21 @@ function Footer({buttons, location}){
 				</div>
 
 				<div className="botoes">
-					{buttons.map((button) => (
-						<Link key={button.to} to={button.to}>
-							<button className={`botao ripple ${button.classname}`}>
-								{button.children}
-							</button>
-						</Link>
-					))}
+					<Link to={buttons.back.to} onClick={(e) => {
+						e.preventDefault();
+						history.goBack();
+					}}>
+						<button className="botao ripple">
+							{buttons.back.children}
+						</button>
+					</Link>
+
+					<Link to={buttons.action.to}>
+						<button className="botao ripple azul botao2">
+							{console.log('botoes', buttons)}
+							{buttons.action.children}
+						</button>
+					</Link>
 				</div>
 			</div>
 		</div>
