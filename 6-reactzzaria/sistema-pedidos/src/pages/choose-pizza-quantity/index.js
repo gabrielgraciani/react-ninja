@@ -16,7 +16,7 @@ function ChoosePizzaQuantity() {
 			<div id="wrap_quantidade">
 				<div className="indent">
 					<div className="input">
-						<input type="number" value="1" autoFocus />
+						<input type="number" autoFocus />
 					</div>
 				</div>
 			</div>

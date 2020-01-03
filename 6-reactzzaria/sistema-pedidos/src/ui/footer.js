@@ -5,7 +5,9 @@ import {singularOrPlural} from 'utils';
 
 function Footer({buttons, location}){
 	const {userInfo} = useAuth();
-	const {name, slices, flavours} = location.state;
+	const {pizzaSize, pizzaFlavours} = location.state;
+	const {name, slices, flavours} = pizzaSize;
+	console.log(pizzaFlavours);
 	return(
 		<div id="wrap_footer">
 			<div className="indent">
@@ -13,6 +15,10 @@ function Footer({buttons, location}){
 					<span><b>{userInfo.user.firstName}, seu pedido é:</b></span>
 					<span>Pizza <b>{name.toUpperCase()} </b>
 							({slices} {singularOrPlural(slices, 'fatia', 'fatias')}, {flavours} {singularOrPlural(flavours, 'sabor', 'sabores')})</span>
+
+					{pizzaFlavours && (
+						<span>{singularOrPlural(pizzaFlavours.length, 'no sabor', 'nos sabores')} <b>{pizzaFlavours.map(({name}) => name).join(', ')}</b></span>
+					)}
 				</div>
 
 				<div className="botoes">
