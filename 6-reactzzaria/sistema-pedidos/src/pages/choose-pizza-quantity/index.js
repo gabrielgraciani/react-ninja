@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import HeaderContent from 'ui/header-content';
 import Footer from 'ui/footer';
 import {HOME, CHOOSE_PIZZA_FLAVOURS, CHECKOUT} from 'routes';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
+import {useOrder} from 'hooks';
 
 function ChoosePizzaQuantity({location}) {
 	const [quantity, setQuantity] = useState(1);
@@ -12,9 +13,19 @@ function ChoosePizzaQuantity({location}) {
 			setQuantity(e.target.value);
 		}
 	}
+	const {addPizzaToOrder} = useOrder();
 
 	if(!location.state){
 		return <Redirect to={HOME} />
+	}
+	console.log('location.state: ',location.state);
+
+	function addPizza(){
+		addPizzaToOrder({
+			size: location.state.pizzaSize.id,
+			flavours: location.state.pizzaFlavours.map(f => f.id),
+			quantity
+		})
 	}
 
 	return(
@@ -33,7 +44,10 @@ function ChoosePizzaQuantity({location}) {
 					</div>
 
 					<div className="texto">
-						<button className="botao ripple rosa">Adicionar e montar outra</button>
+						<Link to={HOME} onClick={addPizza}>
+							<button className="botao ripple rosa">Adicionar e montar outra</button>
+						</Link>
+
 					</div>
 				</div>
 			</div>
@@ -45,6 +59,7 @@ function ChoosePizzaQuantity({location}) {
 				},
 				action:{
 					to: CHECKOUT,
+					onClick: addPizza,
 					children: 'Finalizar Compra',
 				}
 			}} />
