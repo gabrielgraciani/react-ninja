@@ -1,9 +1,9 @@
 import React, {createContext, useCallback, useState} from 'react';
 import firebase from 'services/firebase';
 
-export const AuthContext = createContext();
+const AuthContext = createContext();
 
-function Auth({children}){
+function AuthProvider({children}){
 	const [userInfo, setUserInfo] = useState({
 		isUserLoggedIn: false,
 		user: null
@@ -37,4 +37,4 @@ function Auth({children}){
 	)
 }
 
-export default  Auth;
+export {AuthProvider, AuthContext};
