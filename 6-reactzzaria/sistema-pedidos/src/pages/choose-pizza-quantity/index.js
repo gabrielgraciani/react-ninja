@@ -1,5 +1,5 @@
 import React from 'react';
-import HeaderContent from 'ui/header-content'
+import HeaderContent from 'ui/header-content';
 
 function ChoosePizzaQuantity() {
 	return(
@@ -18,8 +18,6 @@ function ChoosePizzaQuantity() {
 					</div>
 				</div>
 			</div>
-
-
 		</>
 	)
 }
