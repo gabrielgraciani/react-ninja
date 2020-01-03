@@ -1,19 +1,21 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import HeaderContent from 'ui/header-content';
 import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural, toMoney} from 'utils';
 import {Redirect} from 'react-router-dom';
 import {HOME} from 'routes';
 import pizzasFlavours from 'fake-data/pizzas-flavours';
+import {AuthContext} from 'contexts/auth';
 
 const ChoosePizzaFlavours = ({ location }) => {
 	const [checkboxes, setCheckboxes] = useState(() => ({}));
+	const {userInfo} = useContext(AuthContext);
 
 	if (!location.state) {
 		return <Redirect to={HOME} />
 	}
 
-	const { flavours, id } = location.state;
+	const { flavours, id, name, slices } = location.state;
 
 	const handleChangeCheckbox = (pizzaId) => (e) => {
 		console.log('checkboxes', checkboxes);
@@ -42,8 +44,8 @@ const ChoosePizzaFlavours = ({ location }) => {
 
 			<PizzaContent>
 					{pizzasFlavours.map((pizza) => (
-						<label>
-							<div className={`item ${checkboxes[pizza.id] ? "active" : ""}`} key={pizza.id}>
+						<label key={pizza.id}>
+							<div className={`item ${checkboxes[pizza.id] ? "active" : ""}`} >
 								<input type="checkbox"
 									   value=""
 									   checked={!!checkboxes[pizza.id]}
@@ -66,8 +68,10 @@ const ChoosePizzaFlavours = ({ location }) => {
 
 			<div id="wrap_footer">
 				<div className="indent">
-					<div className="pedido">
-						pedidos
+					<div className="texto">
+						<span><b>{userInfo.user.firstName}, seu pedido é:</b></span>
+						<span>Pizza <b>{name.toUpperCase()} </b>
+							({slices} {singularOrPlural(slices, 'fatia', 'fatias')}, {flavours} {singularOrPlural(flavours, 'sabor', 'sabores')})</span>
 					</div>
 
 					<div className="botoes">
