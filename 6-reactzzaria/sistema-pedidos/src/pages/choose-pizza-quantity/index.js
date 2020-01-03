@@ -7,18 +7,18 @@ import {useOrder} from 'hooks';
 
 function ChoosePizzaQuantity({location}) {
 	const [quantity, setQuantity] = useState(1);
+	const {addPizzaToOrder} = useOrder();
+
+	if(!location.state){
+		return <Redirect to={HOME} />
+	}
+
 	function handleChange(e){
 		const {value} = e.target;
 		if(value >=1){
 			setQuantity(e.target.value);
 		}
 	}
-	const {addPizzaToOrder} = useOrder();
-
-	if(!location.state){
-		return <Redirect to={HOME} />
-	}
-	console.log('location.state: ',location.state);
 
 	function addPizza(){
 		addPizzaToOrder({
