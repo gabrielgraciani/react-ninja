@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import HeaderContent from 'ui/header-content';
 import Footer from 'ui/footer';
-import {HOME, CHOOSE_PIZZA_FLAVOURS} from 'routes';
+import {HOME, CHOOSE_PIZZA_FLAVOURS, CHECKOUT} from 'routes';
 import {Redirect} from 'react-router-dom';
 
 function ChoosePizzaQuantity({location}) {
+	const [quantity, setQuantity] = useState(1);
+	function handleChange(e){
+		const {value} = e.target;
+		if(value >=1){
+			setQuantity(e.target.value);
+		}
+	}
+
 	if(!location.state){
 		return <Redirect to={HOME} />
 	}
@@ -21,7 +29,7 @@ function ChoosePizzaQuantity({location}) {
 			<div id="wrap_quantidade">
 				<div className="indent">
 					<div className="input">
-						<input type="number" autoFocus />
+						<input type="number" value={quantity} onChange={handleChange} autoFocus />
 					</div>
 				</div>
 			</div>
@@ -32,7 +40,7 @@ function ChoosePizzaQuantity({location}) {
 					children: 'Mudar sabores'
 				},
 				action:{
-					to: '/',
+					to: CHECKOUT,
 					children: 'Finalizar Compra',
 				}
 			}} />
