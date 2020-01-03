@@ -26,6 +26,7 @@ span{display:block; font-size: 1rem;}
 .botao.azul.ripple{background-position: center; transition: background 0.8s;}
 .botao.azul.ripple:hover{background: #2137aa radial-gradient(circle, transparent 1%, #2137aa 1%) center/15000%;}
 .botao.azul.ripple:active{background-color: #3f51b5; background-size: 100%; transition: background 0s;}
+.botao:disabled{opacity:0.6;}
 
 
 #wrap_header{width:100%; position:relative; background:#3f51b5;}

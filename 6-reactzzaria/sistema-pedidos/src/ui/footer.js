@@ -31,8 +31,8 @@ function Footer({buttons, location, history}){
 						</button>
 					</Link>
 
-					<Link to={buttons.action.to}>
-						<button className="botao ripple azul botao2">
+					<Link to={buttons.action.to} >
+						<button className="botao ripple azul botao2" disabled={buttons.action.disabled}>
 							{console.log('botoes', buttons)}
 							{buttons.action.children}
 						</button>
