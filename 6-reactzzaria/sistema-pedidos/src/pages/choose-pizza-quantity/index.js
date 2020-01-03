@@ -16,7 +16,7 @@ function ChoosePizzaQuantity({location}) {
 	function handleChange(e){
 		const {value} = e.target;
 		if(value >=1){
-			setQuantity(e.target.value);
+			setQuantity(value);
 		}
 	}
 
