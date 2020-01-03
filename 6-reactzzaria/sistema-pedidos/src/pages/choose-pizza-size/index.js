@@ -27,8 +27,8 @@ const ChoosePizzaSize = () => {
 						<Link to={{
 							pathname: CHOOSE_PIZZA_FLAVOURS,
 							state: pizza
-						}}>
-						<div className="item" key={pizza.id}>
+						}} key={pizza.id}>
+						<div className="item" >
 							<div className="imagem risco">
 								<span>{pizza.size}cm</span>
 							</div>
