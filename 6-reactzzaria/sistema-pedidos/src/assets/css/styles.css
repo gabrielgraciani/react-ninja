@@ -13,10 +13,14 @@ span{display:block; font-size: 1rem;}
 #wrap_login .indent{display:flex; max-width:500px; flex-direction:column; align-items:center; justify-content:center;}
 #wrap_login .indent .logo{margin-bottom:40px;}
 #wrap_login .indent svg{width:100%;}
-#wrap_login .indent .github{cursor:pointer; outline:none; font-size:1em; width:100%; text-transform:none; padding:15px; max-width:480px; box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12); background:#e0e0e0; border:0;}
-#wrap_login .indent .github.ripple{background-position: center; transition: background 0.8s;}
-#wrap_login .indent .github.ripple:hover{background: #b8b8b8 radial-gradient(circle, transparent 1%, #b8b8b8 1%) center/15000%;}
-#wrap_login .indent .github.ripple:active{background-color: #e0e0e0; background-size: 100%; transition: background 0s;}
+.botao{cursor:pointer; outline:none; font-size:1em; width:100%; text-transform:none; padding:15px; max-width:480px; box-shadow: 0px 3px 1px -2px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 1px 5px 0px rgba(0,0,0,0.12); background:#e0e0e0; border:0; border-radius:5px;}
+.botao.ripple{background-position: center; transition: background 0.8s;}
+.botao.ripple:hover{background: #b8b8b8 radial-gradient(circle, transparent 1%, #b8b8b8 1%) center/15000%;}
+.botao.ripple:active{background-color: #e0e0e0; background-size: 100%; transition: background 0s;}
+.botao.azul{background:#3f51b5; }
+.botao.azul.ripple{background-position: center; transition: background 0.8s;}
+.botao.azul.ripple:hover{background: #2137aa radial-gradient(circle, transparent 1%, #2137aa 1%) center/15000%;}
+.botao.azul.ripple:active{background-color: #3f51b5; background-size: 100%; transition: background 0s;}
 
 
 #wrap_header{width:100%; position:relative; background:#3f51b5;}
@@ -58,7 +62,9 @@ span{display:block; font-size: 1rem;}
 #wrap_footer{box-shadow: 0 0 3px #bdbdbd; width:100%;}
 #wrap_footer .indent{padding: 20px; display:flex; justify-content:space-between;}
 #wrap_footer .indent .pedido{flex-grow:1;}
-#wrap_footer .indent .botoes{}
+#wrap_footer .indent .botoes{display:flex;}
+#wrap_footer .indent .botoes .botao{width:220px;}
+#wrap_footer .indent .botoes .botao2{margin-left: 16px;}
 
 
 @media screen and (max-width: 1080px){

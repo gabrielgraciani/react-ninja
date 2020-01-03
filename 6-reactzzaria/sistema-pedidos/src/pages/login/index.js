@@ -13,7 +13,7 @@ function Login(){
 					<Logo />
 				</div>
 
-				<button className="github ripple" onClick={login}>Entrar com GitHub</button>
+				<button className="botao ripple" onClick={login}>Entrar com GitHub</button>
 			</div>
 		</div>
 	);

@@ -2,8 +2,8 @@ import React, {useState, useContext} from 'react';
 import HeaderContent from 'ui/header-content';
 import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural, toMoney} from 'utils';
-import {Redirect} from 'react-router-dom';
-import {HOME} from 'routes';
+import {Redirect, Link} from 'react-router-dom';
+import {HOME, CHOOSE_PIZZA_QUANTITY} from 'routes';
 import pizzasFlavours from 'fake-data/pizzas-flavours';
 import {AuthContext} from 'contexts/auth';
 
@@ -75,7 +75,12 @@ const ChoosePizzaFlavours = ({ location }) => {
 					</div>
 
 					<div className="botoes">
-						botoes
+						<Link to={HOME}>
+							<button className="botao ripple">Mudar Tamanho</button>
+						</Link>
+						<Link to={CHOOSE_PIZZA_QUANTITY}>
+							<button className="botao ripple azul botao2">Quantas pizzas</button>
+						</Link>
 					</div>
 				</div>
 			</div>
