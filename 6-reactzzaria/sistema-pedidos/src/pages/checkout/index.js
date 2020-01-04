@@ -1,6 +1,10 @@
 import React from 'react';
+import {useOrder} from 'hooks';
+import {singularOrPlural} from 'utils';
 
 function Checkout(){
+	const {order} = useOrder();
+	console.log(order);
 	return(
 		<div id="wrap_checkout">
 			<div className="indent">
@@ -64,7 +68,24 @@ function Checkout(){
 						</div>
 
 						<div className="conteudo">
-							qweewqewq
+							{order.pizzas.map((pizza, index) => {
+								const {pizzaFlavours, pizzaSize, quantity} = pizza;
+								const {name, slices, flavours} = pizzaSize;
+								return(
+									<div className="texto" key={index}>
+										<span>{quantity} {singularOrPlural(name, 'pizza', 'pizzas')} <b>{name.toUpperCase()} </b>
+											({slices} {singularOrPlural(slices, 'fatia', 'fatias')}, {flavours} {singularOrPlural(flavours, 'sabor', 'sabores')})
+										</span>
+
+										<span>
+											{singularOrPlural(pizzaFlavours.length, 'no sabor', 'nos sabores')} <b>{pizzaFlavours.map(({name}) => name).join(', ')}</b>
+										</span>
+									</div>
+								)
+							})}
+
+
+
 						</div>
 					</div>
 				</div>
