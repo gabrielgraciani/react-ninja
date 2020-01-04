@@ -2,6 +2,8 @@ import React from 'react';
 import {useOrder} from 'hooks';
 import {singularOrPlural} from 'utils';
 import Footer from 'ui/footer';
+import {CHECKOUT_CONFIRMATION} from 'routes';
+import {Link} from 'react-router-dom';
 
 function Checkout(){
 	const {order} = useOrder();
@@ -93,7 +95,9 @@ function Checkout(){
 
 			<Footer>
 				<div className="texto full">
-					<button className="botao ripple azul">Confirmar dados</button>
+					<Link to={CHECKOUT_CONFIRMATION}>
+						<button className="botao ripple azul">Confirmar dados</button>
+					</Link>
 				</div>
 			</Footer>
 		</>
