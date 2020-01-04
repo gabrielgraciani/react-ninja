@@ -6,14 +6,15 @@ import {Close} from '@material-ui/icons';
 
 
 function OrderInfo({showOptions}){
-	const {order} = useOrder();
+	const {order, removePizzaFromOrder} = useOrder();
+	console.log("order", order);
 	return(
 		<>
-			{order.pizzas.map((pizza, index) => {
+			{order.pizzas.map((pizza) => {
 				const {pizzaFlavours, pizzaSize, quantity} = pizza;
 				const {name, slices, flavours} = pizzaSize;
 				return(
-					<div className="texto" key={index}>
+					<div className="texto" key={pizza.id}>
 						<span><b>{quantity}</b> {singularOrPlural(name, 'pizza', 'pizzas')} <b>{name.toUpperCase()} </b>
 							({slices} {singularOrPlural(slices, 'fatia', 'fatias')}, {flavours} {singularOrPlural(flavours, 'sabor', 'sabores')})
 						</span>
@@ -23,7 +24,7 @@ function OrderInfo({showOptions}){
 						</span>
 
 						{showOptions && (
-							<IconButton title="Remover" color="secondary">
+							<IconButton title="Remover" color="secondary" onClick={() => removePizzaFromOrder(pizza.id)}>
 							<Close />
 						</IconButton>
 						)}
