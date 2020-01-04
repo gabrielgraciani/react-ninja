@@ -3,17 +3,18 @@ import {useAuth} from 'hooks';
 import OrderInfo from 'ui/order-info';
 import Footer from 'ui/footer';
 import {Link} from 'react-router-dom';
-import {CHECKOUT_SUCCESS} from 'routes';
+import {HOME} from 'routes';
 
-function CheckoutConfirmation(){
+function CheckoutSuccess(){
 	const {userInfo} = useAuth();
 	return(
 		<>
 			<div id="wrap_checkout" className="confirmation">
 				<div className="indent">
 					<div className="texto">
-						<h4>Oi {userInfo.user.firstName}</h4>
-						<span>Confere, por favor, se está tudo certo com o seu pedido antes de finalizar?</span>
+						<h4>Prontinho {userInfo.user.firstName}</h4>
+						<span>Seu pedido será entregue no endereço abaixo em até</span>
+						<h5>40 minutos =)</h5>
 					</div>
 
 					<div className="conteudo">
@@ -36,8 +37,8 @@ function CheckoutConfirmation(){
 
 			<Footer>
 				<div className="texto centro">
-					<Link to={CHECKOUT_SUCCESS}>
-						<button className="botao ripple azul">TUDO CERTO!</button>
+					<Link to={HOME}>
+						<button className="botao ripple rosa">Voltar para a página inicial</button>
 					</Link>
 				</div>
 			</Footer>
@@ -46,4 +47,4 @@ function CheckoutConfirmation(){
 	)
 }
 
-export default CheckoutConfirmation;
+export default CheckoutSuccess;
