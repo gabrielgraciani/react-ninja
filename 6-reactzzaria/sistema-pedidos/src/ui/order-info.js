@@ -5,9 +5,8 @@ import {IconButton} from '@material-ui/core';
 import {Close} from '@material-ui/icons';
 
 
-function OrderInfo(){
+function OrderInfo({showOptions}){
 	const {order} = useOrder();
-	console.log(order);
 	return(
 		<>
 			{order.pizzas.map((pizza, index) => {
@@ -23,9 +22,11 @@ function OrderInfo(){
 						{singularOrPlural(pizzaFlavours.length, 'no sabor', 'nos sabores')} <b>{pizzaFlavours.map(({name}) => name).join(', ')}</b>
 						</span>
 
-						<IconButton title="Remover" color="secondary">
+						{showOptions && (
+							<IconButton title="Remover" color="secondary">
 							<Close />
 						</IconButton>
+						)}
 					</div>
 				)
 			})}

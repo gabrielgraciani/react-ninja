@@ -69,7 +69,7 @@ function Checkout(){
 							</div>
 
 							<div className="conteudo">
-								<OrderInfo />
+								<OrderInfo showOptions />
 							</div>
 
 						</div>
