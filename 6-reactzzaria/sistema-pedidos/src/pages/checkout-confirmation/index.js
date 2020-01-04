@@ -13,10 +13,19 @@ function CheckoutConfirmation(){
 				</div>
 
 				<div className="conteudo">
-					<div className="texto">
+					<div className="titulo">
 						<h5>Seu Pedido:</h5>
 					</div>
 					<OrderInfo />
+
+					<div className="titulo top">
+						<h5>Endereço para entrega:</h5>
+					</div>
+
+
+					<div className="titulo top">
+						<h5>Telefone para contato:</h5>
+					</div>
 				</div>
 			</div>
 		</div>
