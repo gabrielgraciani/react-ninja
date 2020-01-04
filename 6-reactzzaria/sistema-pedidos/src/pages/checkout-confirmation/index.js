@@ -1,5 +1,5 @@
 import React from 'react';
-import {useAuth} from 'hooks';
+import {useAuth, useOrder} from 'hooks';
 import OrderInfo from 'ui/order-info';
 import Footer from 'ui/footer';
 import {Link} from 'react-router-dom';
@@ -7,6 +7,7 @@ import {CHECKOUT_SUCCESS} from 'routes';
 
 function CheckoutConfirmation(){
 	const {userInfo} = useAuth();
+	const {sendOrder} = useOrder();
 	return(
 		<>
 			<div id="wrap_checkout" className="confirmation">
@@ -36,7 +37,7 @@ function CheckoutConfirmation(){
 
 			<Footer>
 				<div className="texto centro">
-					<Link to={CHECKOUT_SUCCESS}>
+					<Link to={CHECKOUT_SUCCESS} onClick={sendOrder}>
 						<button className="botao ripple azul">TUDO CERTO!</button>
 					</Link>
 				</div>
