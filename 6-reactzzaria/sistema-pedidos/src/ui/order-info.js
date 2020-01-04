@@ -1,6 +1,9 @@
 import React from 'react';
 import {singularOrPlural} from 'utils';
 import {useOrder} from 'hooks';
+import {IconButton} from '@material-ui/core';
+import {Close} from '@material-ui/icons';
+
 
 function OrderInfo(){
 	const {order} = useOrder();
@@ -19,6 +22,10 @@ function OrderInfo(){
 						<span>
 						{singularOrPlural(pizzaFlavours.length, 'no sabor', 'nos sabores')} <b>{pizzaFlavours.map(({name}) => name).join(', ')}</b>
 						</span>
+
+						<IconButton title="Remover" color="secondary">
+							<Close />
+						</IconButton>
 					</div>
 				)
 			})}

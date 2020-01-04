@@ -100,6 +100,8 @@ span{display:block; font-size: 1rem;}
 #wrap_checkout .indent .bloco .conteudo .item .input{border:1px solid #c0c0c0; margin:5px 0; border-radius:5px; padding:5px;}
 #wrap_checkout .indent .col2 .bloco .conteudo{padding:20px;}
 #wrap_checkout .indent .col2 .bloco .conteudo .texto{margin:10px 0;}
+#wrap_checkout .indent .texto{position:relative;}
+#wrap_checkout .indent .texto button{position:absolute; right:10%; top:50%; transform:translate(0, -50%);}
 
 #wrap_checkout.confirmation .indent{flex-direction:column; align-items:center;}
 #wrap_checkout.confirmation .indent .texto{text-align:center; width:100%;}
