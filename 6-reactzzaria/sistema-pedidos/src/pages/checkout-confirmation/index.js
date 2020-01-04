@@ -1,5 +1,6 @@
 import React from 'react';
 import {useAuth} from 'hooks';
+import OrderInfo from 'ui/order-info';
 
 function CheckoutConfirmation(){
 	const {userInfo} = useAuth();
@@ -11,27 +12,11 @@ function CheckoutConfirmation(){
 					<span>Confere, por favor, se está tudo certo com o seu pedido antes de finalizar?</span>
 				</div>
 
-				<div className="bloco">
-					<div className="titulo">
-						<h5>Seu Pedido</h5>
-					</div>
+				<div className="conteudo">
 					<div className="texto">
-						<span>asdhasodi</span>
+						<h5>Seu Pedido:</h5>
 					</div>
-
-					<div className="titulo top">
-						<h5>Endereço para entrega:</h5>
-					</div>
-					<div className="texto">
-						<span>asdhasodi</span>
-					</div>
-
-					<div className="titulo top">
-						<h5>Telefone para contato:</h5>
-					</div>
-					<div className="texto">
-						<span>asdhasodi</span>
-					</div>
+					<OrderInfo />
 				</div>
 			</div>
 		</div>

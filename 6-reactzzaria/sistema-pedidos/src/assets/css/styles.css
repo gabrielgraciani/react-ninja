@@ -102,10 +102,10 @@ span{display:block; font-size: 1rem;}
 
 #wrap_checkout.confirmation .indent{flex-direction:column; align-items:center;}
 #wrap_checkout.confirmation .indent .texto{text-align:center; width:100%;}
-#wrap_checkout.confirmation .indent .bloco{border:1px solid #000; max-width:800px; margin:40px 0 0 0; padding:20px;}
-#wrap_checkout.confirmation .indent .bloco .titulo{width:100%;}
-#wrap_checkout.confirmation .indent .bloco .titulo.top{margin-top:40px;}
-#wrap_checkout.confirmation .indent .bloco .texto{text-align:left; margin:10px 0;}
+#wrap_checkout.confirmation .indent .conteudo{width:100%; border:1px solid #000; max-width:800px; margin:40px 0 0 0; padding:20px;}
+#wrap_checkout.confirmation .indent .conteudo .titulo{width:100%;}
+#wrap_checkout.confirmation .indent .conteudo .titulo.top{margin-top:40px;}
+#wrap_checkout.confirmation .indent .conteudo .texto{text-align:left; margin:10px 0;}
 
 @media screen and (max-width: 1080px){
 	h1{}
