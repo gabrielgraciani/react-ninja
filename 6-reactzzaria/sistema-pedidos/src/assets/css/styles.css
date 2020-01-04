@@ -79,6 +79,7 @@ span{display:block; font-size: 1rem;}
 #wrap_footer .indent .botoes .botao{width:220px;}
 #wrap_footer .indent .botoes .botao2{margin-left: 16px; color:#fff;}
 #wrap_footer .indent .texto.full{width:100%; display:flex; justify-content:flex-end;}
+#wrap_footer .indent .texto.centro{width:100%; display:flex; justify-content:center;}
 #wrap_footer .indent .texto .botao{width:220px;}
 
 #wrap_quantidade{width:100%; position:relative; margin-top:50px; flex-grow:1;}
