@@ -75,7 +75,7 @@ function Checkout(){
 									const {name, slices, flavours} = pizzaSize;
 									return(
 										<div className="texto" key={index}>
-											<span>{quantity} {singularOrPlural(name, 'pizza', 'pizzas')} <b>{name.toUpperCase()} </b>
+											<span><b>{quantity}</b> {singularOrPlural(name, 'pizza', 'pizzas')} <b>{name.toUpperCase()} </b>
 												({slices} {singularOrPlural(slices, 'fatia', 'fatias')}, {flavours} {singularOrPlural(flavours, 'sabor', 'sabores')})
 											</span>
 
@@ -92,7 +92,9 @@ function Checkout(){
 			</div>
 
 			<Footer>
-				footer do checkout
+				<div className="texto full">
+					<button className="botao ripple azul">Confirmar dados</button>
+				</div>
 			</Footer>
 		</>
 
