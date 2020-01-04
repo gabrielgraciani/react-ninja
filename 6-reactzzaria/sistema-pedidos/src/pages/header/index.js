@@ -1,55 +1,20 @@
-import React, {useState} from 'react';
-import {IconButton, Menu, MenuItem} from '@material-ui/core';
-import {AccountCircle} from '@material-ui/icons';
-import {ReactComponent as Logo} from 'assets/images/logo-react-zzaria.svg';
-import {useAuth} from 'hooks';
-import {Link} from 'react-router-dom';
-import {HOME} from 'routes';
+import React from 'react';
+import HeaderCommon from './header-common';
+import HeaderCheckout from './header-checkout';
+import {Route, Switch} from 'react-router-dom';
+import {CHECKOUT} from 'routes';
 
-
-const Header = () => {
-	const {logout, userInfo} = useAuth();
-	const [anchorElement, setAnchorElement] = useState(null);
-	const handleOpenMenu = (e) => {
-		setAnchorElement(e.target);
-	};
-	const handleClose = () => {
-		setAnchorElement(null);
-	};
-
-
-	return(
+const Header = () => (
 		<>
 		<div id="wrap_header">
 			<div className="indent">
-				<div className="logo">
-					<Link to={HOME}>
-						<Logo />
-					</Link>
-				</div>
-
-				<div className="conteudo">
-					<div className="texto">
-						<span>Olá {userInfo.user.firstName} =)</span>
-					</div>
-					<div className="menu">
-						<IconButton color="inherit" onClick={handleOpenMenu}>
-							<AccountCircle />
-						</IconButton>
-
-						<Menu
-							open={!!anchorElement}
-							onClose={handleClose}
-							anchorEl={anchorElement}
-						>
-							<MenuItem onClick={logout}>Sair</MenuItem>
-						</Menu>
-					</div>
-				</div>
+				<Switch>
+					<Route path={CHECKOUT} component={HeaderCheckout} />
+					<Route component={HeaderCommon} />
+				</Switch>
 			</div>
 		</div>
 		</>
-	)
-};
+);
 
 export default Header;

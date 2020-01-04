@@ -39,6 +39,7 @@ span{display:block; font-size: 1rem;}
 #wrap_header .indent{ padding:10px 0; display:flex; justify-content:space-between;}
 #wrap_header .indent .logo svg{width:200px; height:50px;}
 #wrap_header .indent .logo svg path{fill:#fff; stroke:#fff;}
+#wrap_header .indent .logo.full{width:100%; display:flex; justify-content:center;}
 #wrap_header .indent .conteudo{display:flex; align-items:center;}
 #wrap_header .indent .conteudo .texto{}
 #wrap_header .indent .conteudo .texto span{color:#fff;}
@@ -110,6 +111,10 @@ span{display:block; font-size: 1rem;}
 	#wrap_footer .indent .botoes{margin-top: 20px; width:100%; justify-content:space-between;}
 	#wrap_footer .indent .botoes a{width:48%;}
 	#wrap_footer .indent .botoes a .botao{width:100%; margin:10px 0;}
+
+	#wrap_checkout .indent{flex-wrap:wrap;}
+	#wrap_checkout .indent .col1{width:100%;}
+	#wrap_checkout .indent .col2{width:100%; margin-top:40px;}
 }
 @media screen and (max-width: 600px){
 	#wrap_header .indent{padding:5px 0;}
