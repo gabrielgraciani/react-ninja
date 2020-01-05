@@ -1,7 +1,22 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
 function FormAddress(){
 	const [cep, setCep] = useState('');
+
+	useEffect(() => {
+		async function fetchAddress(){
+			if(cep.length < 9){
+				return
+			}
+			console.log('buscar cep', cep);
+
+			const data = await fetch(`https://apps.widenet.com.br/busca-cep/api/cep/${cep}.json`);
+			const result = await data.json();
+			console.log(result);
+		}
+
+		fetchAddress();
+	}, [cep]);
 
 	function handleChangeCep(e){
 		setCep(cepMask(e.target.value));
