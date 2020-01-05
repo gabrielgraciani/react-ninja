@@ -8,7 +8,7 @@ import FormAddress from './form-address';
 import PhoneField from './phone-field';
 
 function Checkout(){
-	const {order} = useOrder();
+	const {order, addPhone, addAddress} = useOrder();
 	if(!order.pizzas.length){
 		return <Redirect to={HOME} />
 	}
@@ -22,7 +22,7 @@ function Checkout(){
 								<h5>Qual o endereço para entrega?</h5>
 							</div>
 
-							<FormAddress />
+							<FormAddress onUpdate={addAddress} />
 						</div>
 
 						<div className="bloco top">
@@ -30,7 +30,7 @@ function Checkout(){
 								<h5>Qual seu telefone</h5>
 							</div>
 
-							<PhoneField />
+							<PhoneField onUpdate={addPhone} />
 						</div>
 					</div>
 

@@ -1,7 +1,11 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 
-function PhoneField(){
+function PhoneField({onUpdate = () => {} }){
 	const [phone, setPhone] = useState('');
+
+	useEffect(() => {
+		onUpdate(phone);
+	}, [phone, onUpdate]);
 
 	function handleChangePhone(e){
 		setPhone(phoneMask(e.target.value));

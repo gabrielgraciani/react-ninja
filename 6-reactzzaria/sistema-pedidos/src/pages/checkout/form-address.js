@@ -1,10 +1,14 @@
 import React, {useState, useEffect, useReducer} from 'react';
 import {CircularProgress} from '@material-ui/core';
 
-function FormAddress(){
+function FormAddress({onUpdate = () => {} }){
 	const [cep, setCep] = useState('');
 	const [fetchingCep, setFetchingCep] = useState(false);
 	const [addressState, dispatch] = useReducer(reducer, initialState);
+
+	useEffect(() => {
+		onUpdate(addressState)
+	}, [addressState, onUpdate]);
 
 	useEffect(() => {
 		async function fetchAddress(){
