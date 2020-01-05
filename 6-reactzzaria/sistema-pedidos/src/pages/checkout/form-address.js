@@ -3,8 +3,8 @@ import {CircularProgress} from '@material-ui/core';
 
 function FormAddress(){
 	const [cep, setCep] = useState('');
-	const [addressState, dispatch] = useReducer(reducer, initialState);
 	const [fetchingCep, setFetchingCep] = useState(false);
+	const [addressState, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
 		async function fetchAddress(){
@@ -38,7 +38,11 @@ function FormAddress(){
 	}
 
 	function handleChangeField(e){
-
+		const {name, value} = e.target;
+		dispatch({
+			type: 'UPDATE_FIELD',
+			payload: {name, value}
+		})
 	}
 	return(
 		<>
@@ -93,6 +97,13 @@ function reducer(state, action){
 		return{
 			...state,
 			...action.payload
+		}
+	}
+
+	if(action.type === 'UPDATE_FIELD'){
+		return{
+			...state,
+			[action.payload.name]: action.payload.value
 		}
 	}
 	return state
