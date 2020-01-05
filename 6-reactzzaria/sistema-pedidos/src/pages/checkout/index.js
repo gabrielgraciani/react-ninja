@@ -5,6 +5,7 @@ import {Link, Redirect} from 'react-router-dom';
 import OrderInfo from 'ui/order-info';
 import {useOrder} from 'hooks';
 import FormAddress from './form-address';
+import PhoneField from './phone-field';
 
 function Checkout(){
 	const {order} = useOrder();
@@ -29,14 +30,7 @@ function Checkout(){
 								<h5>Qual seu telefone</h5>
 							</div>
 
-							<div className="conteudo">
-								<div className="item">
-									<div className="input">
-										<label>Telefone</label>
-										<input type="text" />
-									</div>
-								</div>
-							</div>
+							<PhoneField />
 						</div>
 					</div>
 
