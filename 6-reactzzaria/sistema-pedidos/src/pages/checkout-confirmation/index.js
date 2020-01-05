@@ -7,7 +7,7 @@ import {CHECKOUT_SUCCESS} from 'routes';
 
 function CheckoutConfirmation(){
 	const {userInfo} = useAuth();
-	const {sendOrder} = useOrder();
+	const {sendOrder, order} = useOrder();
 	return(
 		<>
 			<div id="wrap_checkout" className="confirmation">
@@ -26,10 +26,19 @@ function CheckoutConfirmation(){
 						<div className="titulo top">
 							<h5>Endereço para entrega:</h5>
 						</div>
+						<div className="texto">
+							<span>{order.address.address}, {order.address.number}, {order.address.complement}<br />
+							Bairro: {order.address.district}<br />
+							CEP: {order.address.code}<br />
+							{order.address.city}/{order.address.state}</span>
+						</div>
 
 
 						<div className="titulo top">
 							<h5>Telefone para contato:</h5>
+						</div>
+						<div className="texto">
+							<span>{order.phone}</span>
 						</div>
 					</div>
 				</div>
