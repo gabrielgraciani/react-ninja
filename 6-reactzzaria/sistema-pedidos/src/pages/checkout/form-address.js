@@ -15,7 +15,23 @@ function FormAddress(){
 			setFetchingCep(true);
 			const data = await fetch(`https://apps.widenet.com.br/busca-cep/api/cep/${cep}.json`);
 			setFetchingCep(false);
+
+			if(!data.ok){
+				dispatch({type: 'RESET'});
+				return
+			}
+
 			const result = await data.json();
+
+			if(!result.ok){
+				dispatch({
+					type: 'FAIL',
+					payload:{
+						error: result.message
+					}
+				});
+				return
+			}
 
 			dispatch({
 				type: 'UPDATE_FULL_ADDRESS',
@@ -48,9 +64,9 @@ function FormAddress(){
 		<>
 		<div className="conteudo">
 			<div className="item">
-				<div className="input">
+				<div className={`input`}>
 					<label>CEP</label>
-					<input type="text" autoFocus value={cep} onChange={handleChangeCep} />
+					<input type="text" autoFocus value={cep} onChange={handleChangeCep} className={`${!!addressState.error ? "error" : ""}`} />
 				{fetchingCep && <CircularProgress size={20} />}
 				</div>
 
@@ -96,7 +112,8 @@ function reducer(state, action){
 	if(action.type === 'UPDATE_FULL_ADDRESS'){
 		return{
 			...state,
-			...action.payload
+			...action.payload,
+			error: null
 		}
 	}
 
@@ -106,6 +123,18 @@ function reducer(state, action){
 			[action.payload.name]: action.payload.value
 		}
 	}
+
+	if(action.type === 'FAIL'){
+		return{
+			...initialState,
+			error: action.payload.error
+		}
+	}
+
+	if(action.type === 'RESET'){
+		return initialState
+	}
+
 	return state
 }
 
