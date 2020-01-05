@@ -2,6 +2,8 @@ import React, {Suspense, lazy} from 'react';
 import Header from '../header';
 import {Switch, Route} from 'react-router-dom';
 import * as routes from 'routes';
+import { LinearProgress } from '@material-ui/core';
+
 
 const ChoosePizzaSize = lazy(() => import('pages/choose-pizza-size'));
 const ChoosePizzaFlavours = lazy(() => import('pages/choose-pizza-flavours'));
@@ -15,7 +17,7 @@ const Main = () => (
 			<Header />
 
 			<div className="main">
-				<Suspense fallback="loading...">
+				<Suspense fallback={<LinearProgress />}>
 					<Switch>
 						<Route path={routes.HOME} component={ChoosePizzaSize} exact />
 						<Route path={routes.CHOOSE_PIZZA_FLAVOURS} component={ChoosePizzaFlavours} />

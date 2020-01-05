@@ -4,6 +4,7 @@ import {HOME, CHECKOUT_CONFIRMATION} from 'routes';
 import {Link, Redirect} from 'react-router-dom';
 import OrderInfo from 'ui/order-info';
 import {useOrder} from 'hooks';
+import FormAddress from './form-address';
 
 function Checkout(){
 	const {order} = useOrder();
@@ -20,35 +21,7 @@ function Checkout(){
 								<h5>Qual o endereço para entrega?</h5>
 							</div>
 
-							<div className="conteudo">
-								<div className="item">
-									<div className="input">
-										<label>CEP</label>
-										<input type="text" autoFocus />
-									</div>
-									<div className="input maior">
-										<label>Rua</label>
-										<input type="text" />
-									</div>
-									<div className="input menor">
-										<label>Número</label>
-										<input type="text" />
-									</div>
-									<div className="input">
-										<label>Complemento</label>
-										<input type="text" />
-									</div>
-									<div className="input maior">
-										<label>Cidade</label>
-										<input type="text" />
-									</div>
-									<div className="input menor">
-										<label>Estado</label>
-										<input type="text" />
-									</div>
-								</div>
-
-							</div>
+							<FormAddress />
 						</div>
 
 						<div className="bloco top">
