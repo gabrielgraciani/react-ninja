@@ -1,10 +1,15 @@
 import React from 'react';
 import Footer from 'ui/footer';
-import {CHECKOUT_CONFIRMATION} from 'routes';
-import {Link} from 'react-router-dom';
+import {HOME, CHECKOUT_CONFIRMATION} from 'routes';
+import {Link, Redirect} from 'react-router-dom';
 import OrderInfo from 'ui/order-info';
+import {useOrder} from 'hooks';
 
 function Checkout(){
+	const {order} = useOrder();
+	if(!order.pizzas.length){
+		return <Redirect to={HOME} />
+	}
 	return(
 		<>
 			<div id="wrap_checkout">
@@ -80,7 +85,7 @@ function Checkout(){
 			<Footer>
 				<div className="texto full">
 					<Link to={CHECKOUT_CONFIRMATION}>
-						<button className="botao ripple azul">Confirmar dados</button>
+						<button className="botao ripple azul">Confirmar pedido</button>
 					</Link>
 				</div>
 			</Footer>
