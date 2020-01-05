@@ -12,17 +12,22 @@ const ChoosePizzaSize = () => {
 	const [pizzasSizes, setPizzasSizes] = useState([]);
 
 	useEffect(() => {
-		let sizes = [];
+		let mounted = true;
 		db.collection('pizzasSizes').get().then(querySnapshot => {
+			let sizes = [];
 			querySnapshot.forEach(doc => {
 				sizes.push({
 					id: doc.id,
 					...doc.data()
 				});
 			});
-
-			setPizzasSizes(sizes);
+			if(mounted){
+				setPizzasSizes(sizes);
+			}
 		});
+		return () => {
+			mounted = false;
+		}
 	}, []);
 
 	return(
