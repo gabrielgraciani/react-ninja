@@ -1,14 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {useAuth} from 'hooks';
-import pizzaSizes from 'fake-data/pizzas-sizes';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
 import HeaderContent from 'ui/header-content';
 import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural} from 'utils';
+import {db} from 'services/firebase';
 
 const ChoosePizzaSize = () => {
 	const {userInfo} = useAuth();
+	const [pizzasSizes, setPizzasSizes] = useState([]);
+
+	useEffect(() => {
+		let sizes = [];
+		db.collection('pizzasSizes').get().then(querySnapshot => {
+			querySnapshot.forEach(doc => {
+				sizes.push({
+					id: doc.id,
+					...doc.data()
+				});
+			});
+
+			setPizzasSizes(sizes);
+		});
+	}, []);
 
 	return(
 		<>
@@ -23,7 +38,7 @@ const ChoosePizzaSize = () => {
 			</HeaderContent>
 
 			<PizzaContent>
-					{pizzaSizes.map((pizza) => (
+					{pizzasSizes.map((pizza) => (
 						<Link to={{
 							pathname: CHOOSE_PIZZA_FLAVOURS,
 							state: {
