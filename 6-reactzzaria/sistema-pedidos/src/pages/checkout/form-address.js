@@ -1,20 +1,21 @@
 import React, {useState, useEffect, useReducer} from 'react';
+import {CircularProgress} from '@material-ui/core';
 
 function FormAddress(){
 	const [cep, setCep] = useState('');
 	const [addressState, dispatch] = useReducer(reducer, initialState);
+	const [fetchingCep, setFetchingCep] = useState(false);
 
-	console.log('addressstate', addressState);
 	useEffect(() => {
 		async function fetchAddress(){
 			if(cep.length < 9){
 				return
 			}
-			console.log('buscar cep', cep);
 
+			setFetchingCep(true);
 			const data = await fetch(`https://apps.widenet.com.br/busca-cep/api/cep/${cep}.json`);
+			setFetchingCep(false);
 			const result = await data.json();
-			console.log(result);
 
 			dispatch({
 				type: 'UPDATE_FULL_ADDRESS',
@@ -35,6 +36,10 @@ function FormAddress(){
 			.replace(/(\d{5})(\d)/, '$1-$2')
 			.replace(/(-\d{3})\d+?$/, '$1');
 	}
+
+	function handleChangeField(e){
+
+	}
 	return(
 		<>
 		<div className="conteudo">
@@ -42,27 +47,41 @@ function FormAddress(){
 				<div className="input">
 					<label>CEP</label>
 					<input type="text" autoFocus value={cep} onChange={handleChangeCep} />
+				{fetchingCep && <CircularProgress size={20} />}
 				</div>
-				<div className="input maior">
-					<label>Rua</label>
-					<input type="text" />
-				</div>
-				<div className="input menor">
-					<label>Número</label>
-					<input type="text" />
-				</div>
-				<div className="input">
-					<label>Complemento</label>
-					<input type="text" />
-				</div>
-				<div className="input maior">
-					<label>Cidade</label>
-					<input type="text" />
-				</div>
-				<div className="input menor">
-					<label>Estado</label>
-					<input type="text" />
-				</div>
+
+				{[
+					{
+						label: 'Rua',
+						className: 'maior',
+						name: 'address'
+					},
+					{
+						label: 'Número',
+						className: 'menor',
+						name: 'number'
+					},
+					{
+						label: 'Complemento',
+						name: 'complement'
+					},
+					{
+						label: 'Cidade',
+						className: 'maior',
+						name: 'city'
+					},
+					{
+						label: 'Estado',
+						className: 'menor',
+						name: 'state'
+					}
+				].map((field) => (
+					<div className={`input ${field.className}`} key={field.name}>
+						<label>{field.label}</label>
+						<input type="text" name={field.name} value={addressState[field.name]} onChange={handleChangeField} disabled={fetchingCep} />
+					</div>
+				))}
+
 			</div>
 		</div>
 		</>
