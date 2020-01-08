@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {useAuth, useCollection} from 'hooks';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
