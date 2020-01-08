@@ -1,34 +1,25 @@
 import React, {useState, useEffect} from 'react';
-import {useAuth} from 'hooks';
+import {useAuth, useCollection} from 'hooks';
 import {Link} from 'react-router-dom';
 import {CHOOSE_PIZZA_FLAVOURS} from 'routes';
 import HeaderContent from 'ui/header-content';
 import PizzaContent from 'ui/pizza-content';
 import {singularOrPlural} from 'utils';
-import {db} from 'services/firebase';
+import { LinearProgress } from '@material-ui/core';
+
+
 
 const ChoosePizzaSize = () => {
 	const {userInfo} = useAuth();
-	const [pizzasSizes, setPizzasSizes] = useState([]);
+	const pizzasSizes = useCollection('pizzasSizes');
 
-	useEffect(() => {
-		let mounted = true;
-		db.collection('pizzasSizes').get().then(querySnapshot => {
-			let sizes = [];
-			querySnapshot.forEach(doc => {
-				sizes.push({
-					id: doc.id,
-					...doc.data()
-				});
-			});
-			if(mounted){
-				setPizzasSizes(sizes);
-			}
-		});
-		return () => {
-			mounted = false;
-		}
-	}, []);
+	if(!pizzasSizes){
+		return <LinearProgress />
+	}
+
+	if(pizzasSizes.length === 0){
+		return 'Não há dados';
+	}
 
 	return(
 		<>
